@@ -1,5 +1,5 @@
 import qs from 'qs';
-import {PathLike} from 'fs';
+import { PathLike } from 'fs';
 
 export const apiConfig = {
     returnRejectedPromiseOnError: true,
