@@ -1,0 +1,40 @@
+.home-page{
+    width: 85%;
+    float: right;
+    padding-top: 40px;
+}
+.track-list{
+    margin-left: 40px;
+    width: 60%;
+    float: left;
+}
+.track-txt{
+    width: 20%;
+    border-radius: 5px;
+    border: 1px solid #F6A286;
+    margin: 20px;
+    padding: 10px;
+    color: #F6A286;
+
+}
+
+.track-list ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 20px;
+    
+}
+.track-list ul {
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid #ffffff;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    
+}
+.album-list{
+    width: 20%;
+    float: right;
+}

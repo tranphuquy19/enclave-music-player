@@ -1,0 +1,38 @@
+#sidebar{
+    position: fixed;
+    width: 15%;
+    height: 100%;
+    border-right: 1px solid #cccccc;
+}
+#sidebar .logo {
+    margin-bottom: 40px;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding-top: 20px;
+}
+
+.custom_sidebar {
+    padding: 0px;
+    text-align: center;
+}
+
+.sidebar_menu {
+    padding: 0px;
+}
+.sidebar_li {
+    padding: 10px;
+}
+
+.sidebar_li:hover{
+    background: #F6A286;
+    border-top-right-radius: 20px ;
+    border-bottom-right-radius: 20px ;
+}
+
+.sidebar_li:active{
+    background: #F6A286;
+    border-top-right-radius: 20px ;
+    border-bottom-right-radius: 20px ;
+}
