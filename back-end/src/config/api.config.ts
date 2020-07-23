@@ -10,12 +10,9 @@ export const apiConfig = {
     timeout: 30000,
     baseURL: rapidApiHost,
     headers: {
-        common: {
-            "Content-Type": "application/json",
-            "x-rapidapi-host": rapidApiHost,
-            "x-rapidapi-key": rapidApiKey,
-            "useQueryString": true
-        }
+        "Content-Type": "application/json",
+        "x-rapidapi-host": rapidApiHost,
+        "x-rapidapi-key": rapidApiKey,
     },
     paramsSerializer: (params: PathLike) => qs.stringify(params, { indices: false })
 }

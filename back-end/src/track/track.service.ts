@@ -1,16 +1,18 @@
-import { Injectable, HttpService } from '@nestjs/common';
-import { apiConfig } from '../config/api.config';
+import { Injectable } from '@nestjs/common';
+import Axios from 'axios';
+import { apiConfig, appConfig } from 'src/config';
+import { TrackRO } from './track.dto';
+import { plainToClass } from 'class-transformer';
+import camelcaseKey from 'camelcase-keys';
 
 @Injectable()
 export class TrackService {
-    constructor(private httpsService: HttpService) { }
 
     async readTrack(trackId) {
-        const { headers } = apiConfig;
-        const endpoint = `https://${apiConfig.baseURL}/track/${trackId}`;
-        console.log({ endpoint, headers });
-        const { data} = await this.httpsService.get(endpoint, { headers }).toPromise();
-        console.log(data);
-        return { ahihi: 123 };
+        let { data } = await Axios.get<TrackRO>(`https://${appConfig.rapidApiHost}/track/${trackId}`, { headers: apiConfig.headers });
+        data = camelcaseKey(data, {deep: true});
+        let track = new TrackRO();
+        track = plainToClass(TrackRO, data);
+        return track;
     }
 }
