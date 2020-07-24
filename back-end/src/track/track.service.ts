@@ -9,8 +9,14 @@ import camelcaseKey from 'camelcase-keys';
 export class TrackService {
 
     async readTrack(trackId) {
-        let { data } = await Axios.get<TrackRO>(`https://${appConfig.rapidApiHost}/track/${trackId}`, { headers: apiConfig.headers });
-        data = camelcaseKey(data, {deep: true});
+        let { data } = await Axios.get<TrackRO>(`https://${appConfig.rapidApiHost}/track/${trackId}`, {
+            headers: apiConfig.headers, transformResponse: [(data) => {
+                data = JSON.parse(data);
+                return camelcaseKey(data, { deep: true });
+                // console.log(data);
+                // return data;
+            }]
+        });
         let track = new TrackRO();
         track = plainToClass(TrackRO, data);
         return track;

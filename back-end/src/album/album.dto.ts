@@ -1,4 +1,5 @@
-import { Type, Exclude, Expose } from "class-transformer";
+import { Type, Exclude, Expose, Transform } from "class-transformer";
+import moment from 'moment';
 
 export class AlbumDTO {
 
@@ -31,12 +32,13 @@ export class AlbumRO {
     coverXl: string;
 
     @Type(() => Date)
+    @Transform(value => moment(value), { toClassOnly: true })
     @Expose()
     releaseDate: Date;
 
     @Expose()
     tracklist: string;
-    
+
     @Expose()
     type: string;
 }
