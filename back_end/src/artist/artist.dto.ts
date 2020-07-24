@@ -45,7 +45,7 @@ export class ArtistRO {
 
     @Expose()
     @ApiProperty()
-    radio: true;
+    radio: boolean;
 
     @Expose()
     @ApiProperty()

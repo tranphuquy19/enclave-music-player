@@ -1,0 +1,13 @@
+type Album {
+    id: ID!
+    title: String!
+    link: String!
+    cover: String!
+    coverSmall: String!
+    coverMedium: String!
+    coverBig: String!
+    coverXl: String!
+    releaseDate: String!
+    tracklist: String!
+    type: String!
+}
