@@ -16,49 +16,49 @@ export class TrackDTO {
 @Exclude()
 export class TrackRO {
     @Expose()
-    @ApiProperty({ name: "id", description: " of Track" })
+    @ApiProperty()
     id: number;
 
     @Expose()
-    @ApiProperty({ name: "readable", description: " of Track" })
+    @ApiProperty()
     readable: boolean;
 
     @Expose()
-    @ApiProperty({ name: "titleShort", description: " of Track" })
+    @ApiProperty()
     titleShort: string;
 
     @Expose()
-    @ApiProperty({ name: "titleVersion", description: " of Track" })
+    @ApiProperty()
     titleVersion: string;
 
     @Expose()
-    @ApiProperty({ name: "link", description: " of Track" })
+    @ApiProperty()
     link: string;
 
     @Expose()
-    @ApiProperty({ name: "duration", description: " of Track" })
+    @ApiProperty()
     duration: number;
 
     @Expose()
-    @ApiProperty({ name: "rank", description: " of Track" })
+    @ApiProperty()
     rank: number;
 
     @Expose()
-    @ApiProperty({ name: "preview", description: " of Track" })
+    @ApiProperty()
     preview: string;
 
     @Expose()
     @Type(() => ArtistRO)
-    @ApiProperty({ name: "contributors", description: " of Track" })
+    @ApiProperty()
     contributors: ArtistRO[];
 
     @Expose()
     @Type(() => ArtistRO)
-    @ApiProperty({ name: "artist", description: " of Track" })
+    @ApiProperty()
     artist: ArtistRO;
 
     @Expose()
     @Type(() => AlbumRO)
-    @ApiProperty({ name: "album", description: " of Track" })
+    @ApiProperty()
     album: AlbumRO;
 }
