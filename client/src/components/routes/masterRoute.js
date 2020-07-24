@@ -5,7 +5,7 @@ import Home from '../pages/home'
 export const masterRoutes = [
     {
         path: '/',
-        exact: true,
+        exact: false,
         main: () => <Home/>
     },
     {

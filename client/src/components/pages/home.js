@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Header from '../header/header';
 import Sidebar from '../sidebar/sidebar';
-import TrackList from '../../features/trackList/trackList';
+import TrackList from '../../features/home/homePage';
+import routerRendering from '../commons/routerRendering';
+import { homeRoutes } from '../routes/homeRoutes';
 
 class Home extends Component {
     render() {
@@ -9,7 +11,8 @@ class Home extends Component {
             <div>
                 <Header />
                 <Sidebar />
-                <TrackList />
+                {/* <TrackList /> */}
+                {routerRendering(homeRoutes, false)}
             </div>
         );
     }

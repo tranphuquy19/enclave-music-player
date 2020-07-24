@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './sidebar.css'
+import { NavLink } from 'react-router-dom';
 
 
 class Sidebar extends Component {
@@ -14,8 +15,8 @@ class Sidebar extends Component {
                     </li>
                     <li>
                         <ul className="sidebar_menu">
-                            <li className="sidebar_li">Track List</li>
-                            <li className="sidebar_li">Album List</li>
+                            <li className="sidebar_li"><NavLink to="/tracklist">Track List</NavLink></li>
+                            <li className="sidebar_li"><NavLink to="/album">Album List</NavLink></li>
                         </ul>
                     </li>
                 </ul>

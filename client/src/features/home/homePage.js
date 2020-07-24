@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload, faPlay, faMoon } from '@fortawesome/free-solid-svg-icons'
-import '../home/homePage.css';
+import './homePage.css';
 import logo from '../../assets/img/avatar2.png';
 
-class TrackList extends Component {
+class HomePage extends Component {
     render() {
         return (
             <div className="home-page">
@@ -44,9 +44,20 @@ class TrackList extends Component {
 
                     </ul>
                 </div>
+                {/* Artist, Album */}
+                <div className="album-list">
+                    {/* Title Artist, Album */}
+                    <div>
+
+                    </div>
+                    {/* List */}
+                    <div>
+
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
-export default TrackList;
+export default HomePage;
