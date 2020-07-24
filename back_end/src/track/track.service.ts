@@ -8,17 +8,14 @@ import camelcaseKey from 'camelcase-keys';
 @Injectable()
 export class TrackService {
 
-    async readTrack(trackId) {
+    async readTrack(trackId): Promise<TrackRO> {
         let { data } = await Axios.get<TrackRO>(`https://${appConfig.rapidApiHost}/track/${trackId}`, {
             headers: apiConfig.headers, transformResponse: [(data) => {
                 data = JSON.parse(data);
                 return camelcaseKey(data, { deep: true });
-                // console.log(data);
-                // return data;
             }]
         });
-        let track = new TrackRO();
-        track = plainToClass(TrackRO, data);
+        let track = plainToClass(TrackRO, data);
         return track;
     }
 }

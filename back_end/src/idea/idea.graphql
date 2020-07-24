@@ -1,0 +1,7 @@
+type Idea {
+    id: ID!
+    updatedAt: String!
+    idea: String!
+    description: String!
+    author: User!
+}
