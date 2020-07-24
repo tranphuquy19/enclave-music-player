@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from './components/header/header';
-import SideBar from './components/sidebar/sidebar'
 import './App.css';
-import TrackList from './features/trackList/trackList';
+import routerRendering from './components/commons/routerRendering';
+import { masterRoutes } from './components/routes/masterRoute';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <SideBar />
-      <TrackList />
+      <BrowserRouter>
+        {routerRendering(masterRoutes, true)}
+      </BrowserRouter>
     </div>
   );
 }

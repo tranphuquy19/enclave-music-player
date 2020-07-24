@@ -13,17 +13,15 @@
 
 }
 
-.navbar li, a {
-    font-weight: 500;
-    font-size: 16;
-    color: #000000;
-    text-decoration: none;
-}
 .nav-content{
     list-style: none;
 }
 .nav-item {
     margin-right: 20px;
+    font-weight: 500;
+    font-size: 16;
+    color: #000000;
+    text-decoration: none;
 }
 
 .search-box {

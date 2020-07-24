@@ -17,23 +17,49 @@
     color: #F6A286;
 
 }
-
-.track-list ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 20px;
-    
+.track-point{
+    width: 10%;
+}
+.track-author{
+    width: 60%;
+}
+.track-action{
+    width: 40%;
+    float: right;
+}
+.track-toolbar{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.track-icon{
+    margin-right: 20px;
+    border: 0;
+    color: blue;
+    background-color: transparent;
+    cursor: pointer;
 }
 .track-list ul {
     width: 100%;
     border-radius: 2px;
     border: 1px solid #ffffff;
     margin: 20px;
-    padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    
 }
+.track-li{
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.track-li img{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
 .album-list{
     width: 20%;
     float: right;
