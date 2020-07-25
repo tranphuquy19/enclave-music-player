@@ -8,7 +8,12 @@ export class TrackResolver {
     constructor(private trackService: TrackService) { }
 
     @Query()
-    track(@Args('id') id: Number): Promise<TrackRO> {
+    track(@Args('id') id: number): Promise<TrackRO> {
         return this.trackService.readTrack(id);
+    }
+
+    @Query()
+    find(@Args('key') key: string): Promise<TrackRO[]> {
+        return this.trackService.findTrack(key);
     }
 }

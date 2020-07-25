@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { TrackService } from './track.service';
 import { TrackRO, TrackDTO } from './track.dto';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -13,5 +13,13 @@ export class TrackController {
     @ApiResponse({ type: TrackRO, status: 200 })
     read(@Param('id') id: number): Promise<TrackDTO> {
         return this.trackService.readTrack(id);
+    }
+
+    @Get()
+    @ApiOperation({ summary: "Find track" })
+    @ApiResponse({ type: [TrackRO], status: 200 })
+    find(@Query('key') key: string): Promise<TrackRO[]> {
+        console.log(key);
+        return this.trackService.findTrack(key);
     }
 }

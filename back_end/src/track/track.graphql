@@ -14,4 +14,5 @@ type Track {
 
 type Query {
     track(id: Int): Track!
+    find(key: String): [Track!]!
 }
