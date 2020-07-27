@@ -11,3 +11,7 @@ type Album {
     tracklist: String!
     type: String!
 }
+
+type Query {
+    album(id: Int): Album!
+}
