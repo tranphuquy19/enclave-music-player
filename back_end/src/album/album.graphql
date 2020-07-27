@@ -9,6 +9,7 @@ type Album {
     coverXl: String!
     releaseDate: String!
     tracklist: String!
+    tracks: [Track]!
     type: String!
 }
 
