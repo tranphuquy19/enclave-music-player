@@ -1,0 +1,18 @@
+type Artist {
+    id: ID!
+    name: String!
+    link: String!
+    share: String!
+    picture: String!
+    pictureSmall: String!
+    pictureMedium: String!
+    pictureBig: String!
+    pictureXl: String!
+    radio: Boolean!
+    tracklist: String!
+    type: String!
+}
+
+type Query {
+    artist(id: Int): Artist!
+}

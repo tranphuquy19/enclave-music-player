@@ -1,0 +1,14 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "post": 5432,
+    "username": "postgres",
+    "password": "toor",
+    "database": "nestjs2",
+    "synchronize": true,
+    "dropSchema": false,
+    "logging": true,
+    "entities": [
+        "./dist/**/*.entity{.ts,.js}"
+    ]
+}

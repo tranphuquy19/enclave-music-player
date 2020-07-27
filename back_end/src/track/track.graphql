@@ -1,0 +1,18 @@
+type Track {
+    id: ID!
+    readable: String!
+    titleShort: String!
+    titleVersion: String!
+    link: String!
+    duration: Int!
+    rank: Int!
+    preview: String!
+    contributors: [Artist!]!
+    artist: Artist!
+    album: Album!
+}
+
+type Query {
+    track(id: Int): Track!
+    find(key: String): [Track!]!
+}

@@ -1,0 +1,10 @@
+type User {
+  id: ID!
+  username: String!
+  createdAt: String!
+  ideas: [Idea!]!
+}
+
+type Query {
+  users: [User!]
+}
