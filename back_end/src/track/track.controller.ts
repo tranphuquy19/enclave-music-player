@@ -19,7 +19,6 @@ export class TrackController {
     @ApiOperation({ summary: "Find track" })
     @ApiResponse({ type: [TrackRO], status: 200 })
     find(@Query('key') key: string): Promise<TrackRO[]> {
-        console.log(key);
         return this.trackService.findTrack(key);
     }
 }
