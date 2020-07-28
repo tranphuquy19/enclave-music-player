@@ -8,7 +8,7 @@ import { ArtistRO } from './artist.dto';
 export class ArtistController {
     constructor(private artistService: ArtistService) { }
 
-    @Get()
+    @Get(':id')
     @ApiOperation({ summary: 'Read artist' })
     @ApiResponse({ type: ArtistRO, status: 200 })
     read(@Param('id') id: number): Promise<ArtistRO> {

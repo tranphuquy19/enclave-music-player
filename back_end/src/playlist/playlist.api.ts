@@ -7,10 +7,11 @@ import Axios from 'axios';
 export class PlaylistApi {
     static async readPlaylist(playlistId): Promise<PlaylistRO> {
         let { data } = await Axios.get<PlaylistRO>(`https://${appConfig.rapidApiHost}/playlist/${playlistId}`, {
-            headers: apiConfig.headers, transformResponse: [(data) => {
-                data = JSON.parse(data);
-                camelcaseKey(data, { deep: true });
-                return plainToClass(PlaylistRO, data)
+            headers: apiConfig.headers,
+            transformResponse: [(data) => {
+                data = camelcaseKey(JSON.parse(data), { deep: true });
+                data.tracks = data.tracks.data;
+                return plainToClass(PlaylistRO, data);
             }]
         });
         return data;

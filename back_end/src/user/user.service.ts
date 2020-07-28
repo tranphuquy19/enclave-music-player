@@ -3,19 +3,16 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UserEntity } from './user.entity';
 import { Repository } from 'typeorm';
 import { UserDTO, UserRO } from './user.dto';
-import { IdeaEnitity } from 'src/idea/idea.entity';
 
 @Injectable()
 export class UserService {
     constructor(
         @InjectRepository(UserEntity)
         private userRepository: Repository<UserEntity>,
-        @InjectRepository(IdeaEnitity)
-        private ideaRepository: Repository<IdeaEnitity>
     ) { }
 
     async showAll(): Promise<UserRO[]> {
-        const users = await this.userRepository.find({relations: ['ideas']});
+        const users = await this.userRepository.find({});
         return users.map(user => user.toResponseObject(false));
     }
 

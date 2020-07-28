@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ArtistRO } from "src/artist/artist.dto";
 import { AlbumRO } from "src/album/album.dto";
-import { Type, Exclude, Expose } from "class-transformer";
+import { Type, Exclude, Expose, Transform } from 'class-transformer';
+import moment from 'moment';
 
 export class TrackDTO {
     id: Number;
@@ -42,6 +43,12 @@ export class TrackRO {
     @Expose()
     @ApiProperty()
     rank: number;
+
+    @Expose()
+    @Type(() => Date)
+    @Transform(value => moment(value), { toClassOnly: true })
+    @ApiProperty()
+    releaseDate: Date;
 
     @Expose()
     @ApiProperty()

@@ -1,0 +1,25 @@
+type Playlist {
+    id: ID!
+    title: String!
+    description: String!
+    duration: Int!
+    public: Boolean!
+    nbTracks: Int!
+    fans: Int!
+    link: String!
+    share: String!
+    picture: String!
+    pictureSmall: String!
+    pictureMedium: String!
+    pictureBig: String!
+    pictureXl: String!
+    tracklist: String!
+    creationDate: Date!
+    creator: Artist!
+    type: String!
+    tracks: [Track!]!
+}
+
+type Query {
+    playlist(id: BigInt): Playlist!
+}
