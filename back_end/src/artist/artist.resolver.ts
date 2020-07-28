@@ -7,7 +7,7 @@ export class ArtistResolver {
     constructor(private artistService: ArtistService) { }
 
     @Query()
-    artist(@Args('id') id: Number): Promise<ArtistRO> {
+    artist(@Args('id') id: number): Promise<ArtistRO> {
         return this.artistService.readArtist(id);
     }
 }

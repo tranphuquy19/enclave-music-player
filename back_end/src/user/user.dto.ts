@@ -1,5 +1,4 @@
 import { IsNotEmpty, MinLength, MaxLength, Matches } from "class-validator";
-import { IdeaRO } from "src/idea/idea.dto";
 
 export class UserDTO {
     @IsNotEmpty()
@@ -22,5 +21,4 @@ export class UserRO {
     username: string;
     createdAt: Date;
     token?: string;
-    ideas: [IdeaRO]
 }

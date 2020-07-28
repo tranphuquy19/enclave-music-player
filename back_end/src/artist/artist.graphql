@@ -14,5 +14,5 @@ type Artist {
 }
 
 type Query {
-    artist(id: Int): Artist!
+    artist(id: BigInt): Artist!
 }

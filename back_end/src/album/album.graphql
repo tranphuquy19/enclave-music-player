@@ -7,12 +7,12 @@ type Album {
     coverMedium: String!
     coverBig: String!
     coverXl: String!
-    releaseDate: String!
+    releaseDate: Date!
     tracklist: String!
     tracks: [Track]!
     type: String!
 }
 
 type Query {
-    album(id: Int): Album!
+    album(id: BigInt): Album!
 }

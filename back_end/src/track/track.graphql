@@ -6,6 +6,7 @@ type Track {
     link: String!
     duration: Int!
     rank: Int!
+    releaseDate: Date!
     preview: String!
     contributors: [Artist!]!
     artist: Artist!
@@ -13,6 +14,6 @@ type Track {
 }
 
 type Query {
-    track(id: Int): Track!
-    find(key: String): [Track!]!
+    track(id: BigInt): Track!
+    findTracks(key: String): [Track!]!
 }

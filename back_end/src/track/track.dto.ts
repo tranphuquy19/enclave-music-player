@@ -1,17 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ArtistRO } from "src/artist/artist.dto";
 import { AlbumRO } from "src/album/album.dto";
-import { Type, Exclude, Expose } from "class-transformer";
+import { Type, Exclude, Expose, Transform } from 'class-transformer';
+import moment from 'moment';
 
 export class TrackDTO {
-    id: Number;
-    readable: Boolean;
-    titleShort: String;
-    titleVersion: String;
-    link: String;
-    duration: Number;
-    rank: Number;
-    preview: String;
+    id: number;
+    readable: boolean;
+    titleShort: string;
+    titleVersion: string;
+    link: string;
+    duration: number;
+    rank: number;
+    preview: string;
 }
 @Exclude()
 export class TrackRO {
@@ -44,12 +45,21 @@ export class TrackRO {
     rank: number;
 
     @Expose()
+    @Type(() => Date)
+    @Transform(value => moment(value), { toClassOnly: true })
+    @ApiProperty()
+    releaseDate?: Date;
+
+    @Expose()
     @ApiProperty()
     preview: string;
 
     @Expose()
     @Type(() => ArtistRO)
-    @ApiProperty()
+    @ApiProperty({
+        type: ArtistRO,
+        isArray: true
+    })
     contributors: ArtistRO[];
 
     @Expose()

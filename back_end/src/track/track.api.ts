@@ -18,7 +18,7 @@ export class TrackApi {
     }
 
     static async findTrack(key: string): Promise<TrackRO[]> {
-        const { data } = await Axios.get<TrackRO[]>(`https://${appConfig.rapidApiHost}/search?q=${key}`, {
+        const { data } = await Axios.get<TrackRO[]>(`https://${appConfig.rapidApiHost}/search?q=${encodeURI(key)}`, {
             headers: apiConfig.headers,
             transformResponse: [(data) => {
                 let tracks = JSON.parse(data).data;

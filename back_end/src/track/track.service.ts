@@ -5,11 +5,11 @@ import { TrackApi } from './track.api';
 @Injectable()
 export class TrackService {
 
-    readTrack(trackId): Promise<TrackRO> {
+    readTrack(trackId: number): Promise<TrackRO> {
         return TrackApi.readTrack(trackId);
     }
 
-    findTrack(key): Promise<TrackRO[]> {
+    findTrack(key: string): Promise<TrackRO[]> {
         return TrackApi.findTrack(key);
     }
 }

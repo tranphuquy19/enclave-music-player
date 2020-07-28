@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, UsePipes, ValidationPipe, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UserDTO } from './user.dto';
-import { User } from './user.decorator';
+import { UserDTO, UserRO } from './user.dto';
 import { AuthGuard } from '../shared/auth.gaurd';
 import { ApiOperation, ApiResponse, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
@@ -15,19 +14,19 @@ export class UserController {
     @ApiBearerAuth()
     @ApiOperation({ summary: 'Read users' })
     @ApiResponse({ type: [UserDTO], status: 200 })
-    index(@User() user) {
+    index(): Promise<UserRO[]> {
         return this.userService.showAll();
     }
 
     @Post('login')
     @UsePipes(ValidationPipe)
-    login(@Body() data: UserDTO) {
+    login(@Body() data: UserDTO): Promise<UserRO> {
         return this.userService.login(data);
     }
 
     @Post('register')
     @UsePipes(ValidationPipe)
-    register(@Body() data: UserDTO) {
+    register(@Body() data: UserDTO): Promise<UserRO> {
         return this.userService.register(data);
     }
 }
