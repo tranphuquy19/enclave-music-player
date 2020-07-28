@@ -19,6 +19,7 @@ async function bootstrap() {
       .setDescription('The ideas API description')
       .setVersion('1.0')
       .addBearerAuth()
+      .addServer('https://api.doraneko.tk')
       .addServer('http://192.168.21.207:4000')
       .addServer('http://localhost:4000')
       .build();

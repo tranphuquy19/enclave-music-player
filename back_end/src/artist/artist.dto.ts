@@ -1,9 +1,7 @@
 import { Exclude, Expose } from "class-transformer";
 import { ApiProperty } from "@nestjs/swagger";
 
-export class ArtistDTO {
-
-}
+export class ArtistDTO { }
 
 @Exclude()
 export class ArtistRO {

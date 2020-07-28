@@ -9,21 +9,25 @@ import { ApiOperation, ApiResponse, ApiTags, ApiBearerAuth } from '@nestjs/swagg
 export class UserController {
     constructor(private userService: UserService) { }
 
-    @Get('users')
-    @UseGuards(new AuthGuard())
     @ApiBearerAuth()
     @ApiOperation({ summary: 'Read users' })
-    @ApiResponse({ type: [UserDTO], status: 200 })
+    @ApiResponse({ type: [UserRO], status: 200 })
+    @Get('users')
+    @UseGuards(new AuthGuard())
     index(): Promise<UserRO[]> {
         return this.userService.showAll();
     }
 
+    @ApiOperation({ summary: 'User login' })
+    @ApiResponse({ type: UserRO, status: 200 })
     @Post('login')
     @UsePipes(ValidationPipe)
     login(@Body() data: UserDTO): Promise<UserRO> {
         return this.userService.login(data);
     }
 
+    @ApiOperation({ summary: 'User register' })
+    @ApiResponse({ type: UserRO, status: 201 })
     @Post('register')
     @UsePipes(ValidationPipe)
     register(@Body() data: UserDTO): Promise<UserRO> {

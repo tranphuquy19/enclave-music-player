@@ -3,8 +3,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import moment from "moment";
 import { TrackRO } from '../track/track.dto';
 
-export class AlbumDTO {
-}
+export class AlbumDTO { }
 
 @Exclude()
 export class AlbumRO {

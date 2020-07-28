@@ -4,16 +4,7 @@ import { AlbumRO } from "src/album/album.dto";
 import { Type, Exclude, Expose, Transform } from 'class-transformer';
 import moment from 'moment';
 
-export class TrackDTO {
-    id: number;
-    readable: boolean;
-    titleShort: string;
-    titleVersion: string;
-    link: string;
-    duration: number;
-    rank: number;
-    preview: string;
-}
+export class TrackDTO { }
 @Exclude()
 export class TrackRO {
     @Expose()
