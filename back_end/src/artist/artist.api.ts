@@ -7,9 +7,10 @@ import { plainToClass } from 'class-transformer';
 export class ArtistApi {
     static async readArtist(artistId: number): Promise<ArtistRO> {
         const { data } = await Axios.get<ArtistRO>(`https://${appConfig.rapidApiHost}/artist/${artistId}`, {
-            headers: apiConfig.headers, transformResponse: [(data) => {
+            headers: apiConfig.headers,
+            transformResponse: [(data) => {
                 data = JSON.parse(data);
-                camelcaseKey(data, { deep: true });
+                data = camelcaseKey(data, { deep: true });
                 return plainToClass(ArtistRO, data)
             }]
         });
