@@ -40,9 +40,9 @@ export class AlbumRO {
     @ApiProperty()
     coverXl: string;
 
+    @Expose()
     @Type(() => Date)
     @Transform(value => moment(value), { toClassOnly: true })
-    @Expose()
     @ApiProperty()
     releaseDate: Date;
 

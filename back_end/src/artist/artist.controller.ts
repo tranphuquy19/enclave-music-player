@@ -11,7 +11,7 @@ export class ArtistController {
     @Get()
     @ApiOperation({ summary: 'Read artist' })
     @ApiResponse({ type: ArtistRO, status: 200 })
-    read(@Param('id') id: Number) {
+    read(@Param('id') id: number): Promise<ArtistRO> {
         return this.artistService.readArtist(id);
     }
 }
