@@ -1,9 +1,12 @@
 import { IsNotEmpty, MinLength, MaxLength, Matches } from "class-validator";
+import { ApiProperty } from "@nestjs/swagger";
 
 export class UserDTO {
+    @ApiProperty()
     @IsNotEmpty()
     username: string;
 
+    @ApiProperty()
     @IsNotEmpty()
     @MinLength(8)
     @MaxLength(20)
@@ -17,8 +20,12 @@ export class UserDTO {
 }
 
 export class UserRO {
+    @ApiProperty()
     id: string;
+    @ApiProperty()
     username: string;
+    @ApiProperty()
     createdAt: Date;
+    @ApiProperty()
     token?: string;
 }
