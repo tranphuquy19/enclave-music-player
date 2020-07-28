@@ -1,7 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column, BeforeInsert, OneToMany, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column, BeforeInsert, UpdateDateColumn } from "typeorm";
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
-import { config} from '../shared/config';
+import { config } from '../shared/config';
 import { UserRO } from './user.dto';
 
 @Entity('user')
@@ -25,11 +25,11 @@ export class UserEntity {
     password: string;
 
     @BeforeInsert()
-    async hashPassword() {
+    async hashPassword(): Promise<void> {
         this.password = await bcrypt.hash(this.password, 10);
     }
 
-    toResponseObject(showToken: boolean = true): UserRO {
+    toResponseObject(showToken = true): UserRO {
         const { id, createdAt, username, token } = this;
         const responseObject: any = { id, createdAt, username };
         if (showToken) {
@@ -39,7 +39,7 @@ export class UserEntity {
         return responseObject;
     }
 
-    async comparePassword(attempt: string) {
+    async comparePassword(attempt: string): Promise<boolean> {
         return await bcrypt.compare(attempt, this.password);
     }
 

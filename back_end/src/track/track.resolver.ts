@@ -1,7 +1,6 @@
 import { Resolver, Query, Args } from '@nestjs/graphql';
 import { TrackService } from './track.service';
 import { TrackRO } from './track.dto';
-import { ArtistRO } from 'src/artist/artist.dto';
 
 @Resolver('Track')
 export class TrackResolver {
@@ -13,7 +12,7 @@ export class TrackResolver {
     }
 
     @Query()
-    find(@Args('key') key: string): Promise<TrackRO[]> {
+    findTracks(@Args('key') key: string): Promise<TrackRO[]> {
         return this.trackService.findTrack(key);
     }
 }

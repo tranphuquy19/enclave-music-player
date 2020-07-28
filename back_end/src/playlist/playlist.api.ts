@@ -5,8 +5,8 @@ import { plainToClass } from 'class-transformer';
 import Axios from 'axios';
 
 export class PlaylistApi {
-    static async readPlaylist(playlistId): Promise<PlaylistRO> {
-        let { data } = await Axios.get<PlaylistRO>(`https://${appConfig.rapidApiHost}/playlist/${playlistId}`, {
+    static async readPlaylist(playlistId: number): Promise<PlaylistRO> {
+        const { data } = await Axios.get<PlaylistRO>(`https://${appConfig.rapidApiHost}/playlist/${playlistId}`, {
             headers: apiConfig.headers,
             transformResponse: [(data) => {
                 data = camelcaseKey(JSON.parse(data), { deep: true });

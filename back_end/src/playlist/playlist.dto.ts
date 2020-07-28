@@ -69,7 +69,7 @@ export class PlaylistRO {
     tracklist: string;
 
     @Expose()
-    @Type(type => Date)
+    @Type(() => Date)
     @Transform(value => moment(value), { toClassOnly: true })
     @ApiProperty()
     creationDate: Date;

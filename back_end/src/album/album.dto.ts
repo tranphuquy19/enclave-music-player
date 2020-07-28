@@ -51,7 +51,7 @@ export class AlbumRO {
     tracklist: string;
 
     @Expose()
-    @Type(type => TrackRO)
+    @Type(() => TrackRO)
     @ApiProperty({
         type: TrackRO,
         isArray: true

@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
         return true;
     }
 
-    async validateToken(auth: string) {
+    async validateToken(auth: string) : Promise<any>{
         const [tokenType, token] = auth.split(' ');
         const { jwtSecretKey } = config;
         if (tokenType !== 'Bearer') {

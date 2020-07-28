@@ -1,4 +1,4 @@
-import Axios, { AxiosRequestConfig, AxiosInstance, AxiosPromise } from 'axios';
+import Axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
 
 const initialization = (config: AxiosRequestConfig): AxiosInstance => {
     const axiosInstance = Axios.create(config);

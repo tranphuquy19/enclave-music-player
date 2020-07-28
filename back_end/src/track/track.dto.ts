@@ -5,14 +5,14 @@ import { Type, Exclude, Expose, Transform } from 'class-transformer';
 import moment from 'moment';
 
 export class TrackDTO {
-    id: Number;
-    readable: Boolean;
-    titleShort: String;
-    titleVersion: String;
-    link: String;
-    duration: Number;
-    rank: Number;
-    preview: String;
+    id: number;
+    readable: boolean;
+    titleShort: string;
+    titleVersion: string;
+    link: string;
+    duration: number;
+    rank: number;
+    preview: string;
 }
 @Exclude()
 export class TrackRO {

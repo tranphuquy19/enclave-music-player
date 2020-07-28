@@ -5,8 +5,8 @@ import camelcaseKey from 'camelcase-keys';
 import { plainToClass } from 'class-transformer';
 
 export class ArtistApi {
-    static async readArtist(artistId): Promise<ArtistRO> {
-        let { data } = await Axios.get<ArtistRO>(`https://${appConfig.rapidApiHost}/artis/${artistId}`, {
+    static async readArtist(artistId: number): Promise<ArtistRO> {
+        const { data } = await Axios.get<ArtistRO>(`https://${appConfig.rapidApiHost}/artist/${artistId}`, {
             headers: apiConfig.headers, transformResponse: [(data) => {
                 data = JSON.parse(data);
                 camelcaseKey(data, { deep: true });

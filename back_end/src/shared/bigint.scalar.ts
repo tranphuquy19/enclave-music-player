@@ -4,11 +4,11 @@ import { Scalar } from '@nestjs/graphql';
 export class BigIntScalar {
     description = 'BigInt custom scalar type';
 
-    parseValue(value) {
+    parseValue(value: number): number {
         return Number(value);
     }
 
-    serialize(value: Number) {
+    serialize(value: number): any {
         return value;
     }
 }

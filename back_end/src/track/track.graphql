@@ -15,5 +15,5 @@ type Track {
 
 type Query {
     track(id: BigInt): Track!
-    find(key: String): [Track!]!
+    findTracks(key: String): [Track!]!
 }
