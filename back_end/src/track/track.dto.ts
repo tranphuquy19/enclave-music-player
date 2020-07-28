@@ -48,7 +48,7 @@ export class TrackRO {
     @Type(() => Date)
     @Transform(value => moment(value), { toClassOnly: true })
     @ApiProperty()
-    releaseDate: Date;
+    releaseDate?: Date;
 
     @Expose()
     @ApiProperty()
@@ -56,7 +56,10 @@ export class TrackRO {
 
     @Expose()
     @Type(() => ArtistRO)
-    @ApiProperty()
+    @ApiProperty({
+        type: ArtistRO,
+        isArray: true
+    })
     contributors: ArtistRO[];
 
     @Expose()

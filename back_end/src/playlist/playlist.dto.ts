@@ -4,7 +4,7 @@ import { Exclude, Expose, Type, Transform } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 import moment from 'moment';
 
-export class PlaylistDTO {}
+export class PlaylistDTO { }
 
 @Exclude()
 export class PlaylistRO {
@@ -75,7 +75,10 @@ export class PlaylistRO {
     creationDate: Date;
 
     @Expose()
-    @ApiProperty()
+    @Type(() => ArtistRO)
+    @ApiProperty({
+        type: ArtistRO
+    })
     creator: ArtistRO;
 
     @Expose()
@@ -83,6 +86,10 @@ export class PlaylistRO {
     type: string;
 
     @Expose()
-    @ApiProperty()
+    @Type(() => TrackRO)
+    @ApiProperty({
+        type: TrackRO,
+        isArray: true
+    })
     tracks: TrackRO[];
 }
