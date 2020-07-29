@@ -1,5 +1,5 @@
-import { Scalar } from "@nestjs/graphql";
-import moment, { Moment } from "moment";
+import { Scalar } from '@nestjs/graphql';
+import moment, { Moment } from 'moment';
 
 @Scalar('Date')
 export class DateScalar {

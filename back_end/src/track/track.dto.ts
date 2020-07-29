@@ -1,10 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { ArtistRO } from "src/artist/artist.dto";
-import { AlbumRO } from "src/album/album.dto";
+import { ArtistRO } from 'src/artist/artist.dto';
+import { AlbumRO } from 'src/album/album.dto';
 import { Type, Exclude, Expose, Transform } from 'class-transformer';
 import moment from 'moment';
 
 export class TrackDTO { }
+
 @Exclude()
 export class TrackRO {
     @Expose()

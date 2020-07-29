@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { TrackService } from './track.service';
 import { TrackRO } from './track.dto';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { FindOneParams } from '../shared/pipes.params';
 
 @Controller('track')
@@ -16,7 +16,7 @@ export class TrackController {
     }
 
     @Get()
-    @ApiOperation({ summary: "Find track" })
+    @ApiOperation({ summary: 'Find track' })
     find(@Query('key') key: string): Promise<TrackRO[]> {
         return this.trackService.findTrack(key);
     }

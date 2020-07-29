@@ -1,6 +1,6 @@
-import { ArtistRO } from "./artist.dto";
+import { ArtistRO } from './artist.dto';
 import { appConfig, apiConfig } from 'src/config';
-import Axios from "axios";
+import Axios from 'axios';
 import camelcaseKey from 'camelcase-keys';
 import { plainToClass } from 'class-transformer';
 import { HttpException, HttpStatus } from '@nestjs/common';

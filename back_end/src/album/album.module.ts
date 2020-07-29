@@ -7,4 +7,4 @@ import { AlbumResolver } from './album.resolver';
   controllers: [AlbumController],
   providers: [AlbumService, AlbumResolver]
 })
-export class AlbumModule {}
+export class AlbumModule { }

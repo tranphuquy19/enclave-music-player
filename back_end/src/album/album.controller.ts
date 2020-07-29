@@ -1,6 +1,6 @@
 import { Controller, Get, Param, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AlbumService } from './album.service';
-import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { AlbumRO } from './album.dto';
 import { FindOneParams } from '../shared/pipes.params';
 

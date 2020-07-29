@@ -7,4 +7,4 @@ import { ArtistResolver } from './artist.resolver';
   controllers: [ArtistController],
   providers: [ArtistService, ArtistResolver]
 })
-export class ArtistModule {}
+export class ArtistModule { }
