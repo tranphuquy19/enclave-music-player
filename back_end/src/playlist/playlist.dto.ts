@@ -76,9 +76,7 @@ export class PlaylistRO {
 
     @Expose()
     @Type(() => ArtistRO)
-    @ApiProperty({
-        type: ArtistRO
-    })
+    @ApiProperty({ type: () => ArtistRO })
     creator: ArtistRO;
 
     @Expose()
@@ -87,9 +85,6 @@ export class PlaylistRO {
 
     @Expose()
     @Type(() => TrackRO)
-    @ApiProperty({
-        type: TrackRO,
-        isArray: true
-    })
+    @ApiProperty({ type: () => TrackRO, isArray: true })
     tracks: TrackRO[];
 }
