@@ -48,19 +48,16 @@ export class TrackRO {
 
     @Expose()
     @Type(() => ArtistRO)
-    @ApiProperty({
-        type: ArtistRO,
-        isArray: true
-    })
+    @ApiProperty({ type: () => ArtistRO, isArray: true })
     contributors: ArtistRO[];
 
     @Expose()
     @Type(() => ArtistRO)
-    @ApiProperty()
+    @ApiProperty({ type: () => ArtistRO })
     artist: ArtistRO;
 
     @Expose()
     @Type(() => AlbumRO)
-    @ApiProperty()
+    @ApiProperty({ type: () => AlbumRO })
     album: AlbumRO;
 }

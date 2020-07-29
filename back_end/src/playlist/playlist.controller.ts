@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { PlaylistService } from './playlist.service';
 import { PlaylistRO } from './playlist.dto';
 import { FindOneParams } from '../shared/pipes.params';
@@ -11,6 +11,7 @@ export class PlaylistController {
 
     @Get(':id')
     @ApiOperation({ summary: 'Read playlist' })
+    @ApiResponse({ type: PlaylistRO, status: 200 })
     read(@Param() { id }: FindOneParams): Promise<PlaylistRO> {
         return this.playlistService.readPlaylist(id);
     }
