@@ -1,6 +1,6 @@
-import { Type, Exclude, Expose, Transform } from "class-transformer";
-import { ApiProperty } from "@nestjs/swagger";
-import moment from "moment";
+import { Type, Exclude, Expose, Transform } from 'class-transformer';
+import { ApiProperty } from '@nestjs/swagger';
+import moment from 'moment';
 import { TrackRO } from '../track/track.dto';
 
 export class AlbumDTO { }

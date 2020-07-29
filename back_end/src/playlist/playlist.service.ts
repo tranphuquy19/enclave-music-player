@@ -8,5 +8,4 @@ export class PlaylistService {
     readPlaylist(id: number): Promise<PlaylistRO> {
         return PlaylistApi.readPlaylist(id);
     }
-
 }

@@ -1,8 +1,9 @@
-import { TrackRO } from "./track.dto";
-import Axios from "axios";
+import { TrackRO } from './track.dto';
+import Axios from 'axios';
 import { apiConfig, appConfig } from 'src/config';
-import { plainToClass } from "class-transformer";
+import { plainToClass } from 'class-transformer';
 import camelcaseKey from 'camelcase-keys';
+import { HttpStatus, HttpException } from '@nestjs/common';
 
 export class TrackApi {
 
@@ -11,6 +12,7 @@ export class TrackApi {
             headers: apiConfig.headers,
             transformResponse: [(data) => {
                 data = camelcaseKey(JSON.parse(data), { deep: true });
+                if (data.error) throw new HttpException(`Couldn't find Track with id = ${trackId}`, HttpStatus.NOT_FOUND);
                 return plainToClass(TrackRO, data);
             }]
         });

@@ -7,4 +7,4 @@ import { PlaylistResolver } from './playlist.resolver';
   controllers: [PlaylistController],
   providers: [PlaylistService, PlaylistResolver]
 })
-export class PlaylistModule {}
+export class PlaylistModule { }

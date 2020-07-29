@@ -1,9 +1,9 @@
 import { AlbumRO } from './album.dto';
 import { appConfig, apiConfig } from 'src/config';
-import Axios, { AxiosError } from 'axios';
+import Axios from 'axios';
 import camelcaseKey from 'camelcase-keys';
 import { plainToClass } from 'class-transformer';
-import { HttpException, HttpStatus, Logger } from '@nestjs/common';
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 export class AlbumApi {
     static async readAlbum(albumId: number): Promise<AlbumRO> {
