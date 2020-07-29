@@ -2,6 +2,7 @@ import { Controller, Get, Param, Query } from '@nestjs/common';
 import { TrackService } from './track.service';
 import { TrackRO } from './track.dto';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { FindOneParams } from '../shared/pipes.params';
 
 @Controller('track')
 @ApiTags('Track')
@@ -10,14 +11,12 @@ export class TrackController {
 
     @Get(':id')
     @ApiOperation({ summary: 'Read track' })
-    @ApiResponse({ type: TrackRO, status: 200 })
-    read(@Param('id') id: number): Promise<TrackRO> {
+    read(@Param() { id }: FindOneParams): Promise<TrackRO> {
         return this.trackService.readTrack(id);
     }
 
     @Get()
     @ApiOperation({ summary: "Find track" })
-    @ApiResponse({ type: [TrackRO], status: 200 })
     find(@Query('key') key: string): Promise<TrackRO[]> {
         return this.trackService.findTrack(key);
     }
