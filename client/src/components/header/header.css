@@ -35,16 +35,18 @@
     color: #e84118;
     float: left;
     display: flex;
+    margin-top: 10px;
     margin-right: 10px;
 }
 
 .search-txt {
-    border: none;
+    /* border: 1px solid #000000; */
+    border-radius: 5px;
     background: none;
     outline: none;
     float: right;
-    padding: 0;
-    color: #cccccc;
+    padding: 5px;
+    color: rgb(0, 0, 0);
     font-size: 16px;
     width: 300px;
 }

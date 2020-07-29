@@ -4,13 +4,16 @@ import { NavLink } from 'react-router-dom';
 
 
 class Sidebar extends Component {
+    handleOnClick = () => {
+        window.location.replace("/")
+    }
     render() {
         return (
             <div id="sidebar">
                 <ul className="custom_sidebar">
                     <li>
                         <div className="logo">
-                            <h2>Music</h2>
+                            <h2 onClick={this.handleOnClick}>Music</h2>
                         </div>
                     </li>
                     <li>

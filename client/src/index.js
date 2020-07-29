@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
+import "react-tabs/style/react-tabs.css";
 import App from './App';
 
 import * as serviceWorker from './serviceWorker';
