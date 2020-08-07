@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, HttpException, HttpStatus } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { PlaylistService } from './playlist.service';
 import { PlaylistRO } from './playlist.dto';
@@ -13,6 +13,7 @@ export class PlaylistController {
     @ApiOperation({ summary: 'Read playlist' })
     @ApiResponse({ type: PlaylistRO, status: 200 })
     read(@Param() { id }: FindOneParams): Promise<PlaylistRO> {
+        if (!id) throw new HttpException(`Bad request`, HttpStatus.BAD_REQUEST);
         return this.playlistService.readPlaylist(id);
     }
 }

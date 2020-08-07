@@ -1,4 +1,4 @@
-import { Controller, Get, Param, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Param, UsePipes, ValidationPipe, HttpException, HttpStatus } from '@nestjs/common';
 import { AlbumService } from './album.service';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { AlbumRO } from './album.dto';
@@ -15,6 +15,7 @@ export class AlbumController {
     @Get(':id')
     @UsePipes(ValidationPipe)
     read(@Param() { id }: FindOneParams): Promise<AlbumRO> {
+        if (!id) throw new HttpException(`Bad request`, HttpStatus.BAD_REQUEST);
         return this.albumService.readAlbum(id);
     }
 }
