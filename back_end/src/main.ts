@@ -15,8 +15,8 @@ async function bootstrap() {
     app.enableCors();
 
     const options = new DocumentBuilder()
-      .setTitle('Ideas Project')
-      .setDescription('The ideas API description')
+      .setTitle(`Enclave's project`)
+      .setDescription('Music player API')
       .setVersion('1.0')
       .addBearerAuth()
       .addServer('https://api.doraneko.tk')
