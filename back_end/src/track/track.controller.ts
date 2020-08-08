@@ -1,8 +1,10 @@
-import { Controller, Get, Param, Query, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Param, Query, HttpException, HttpStatus, Post, UseGuards } from '@nestjs/common';
 import { TrackService } from './track.service';
 import { TrackRO } from './track.dto';
 import { ApiOperation, ApiTags, ApiResponse } from '@nestjs/swagger';
 import { FindOneParams } from '../shared/pipes.params';
+import { AuthGuard } from '../shared/auth.gaurd';
+import { User } from 'src/user/user.decorator';
 
 @Controller('track')
 @ApiTags('Track')
@@ -15,6 +17,20 @@ export class TrackController {
     read(@Param() { id }: FindOneParams): Promise<TrackRO> {
         if (!id) throw new HttpException(`Bad request`, HttpStatus.BAD_REQUEST);
         return this.trackService.readTrack(id);
+    }
+
+    @Get(':id/upvote')
+    @UseGuards(new AuthGuard())
+    upvote(@Param('id') id: string, @User('id') userId: string) {
+        console.log({ id, userId });
+        return {};
+    }
+
+    @Get(':id/downvote')
+    @UseGuards(new AuthGuard())
+    downvote(@Param('id') id: string, @User('id') userId: string) {
+        console.log({ id, userId });
+        return {};
     }
 
     @Get()
