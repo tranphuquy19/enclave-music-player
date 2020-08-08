@@ -11,6 +11,12 @@ type Track {
     contributors: [Artist!]!
     artist: Artist!
     album: Album!
+    upVoteLink: String!
+    downVoteLink: String!
+    upVotes: [User!]!
+    downVotes: [User!]!
+    nbUpVotes: Int!
+    nbDownVotes: Int!
 }
 
 type Query {
