@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query, HttpException, HttpStatus, Post, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Query, HttpException, HttpStatus, UseGuards } from '@nestjs/common';
 import { TrackService } from './track.service';
 import { TrackRO } from './track.dto';
 import { ApiOperation, ApiTags, ApiResponse } from '@nestjs/swagger';
@@ -21,16 +21,14 @@ export class TrackController {
 
     @Get(':id/upvote')
     @UseGuards(new AuthGuard())
-    upvote(@Param('id') id: string, @User('id') userId: string) {
-        console.log({ id, userId });
-        return {};
+    async upvote(@Param('id') trackId: number, @User('id') userId: string): Promise<TrackRO> {
+        return await this.trackService.upvote(trackId, userId);
     }
 
     @Get(':id/downvote')
     @UseGuards(new AuthGuard())
-    downvote(@Param('id') id: string, @User('id') userId: string) {
-        console.log({ id, userId });
-        return {};
+    async downvote(@Param('id') trackId: number, @User('id') userId: string): Promise<TrackRO> {
+        return await this.trackService.downvote(trackId, userId);
     }
 
     @Get()

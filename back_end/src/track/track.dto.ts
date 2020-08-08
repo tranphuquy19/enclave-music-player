@@ -3,6 +3,7 @@ import { ArtistRO } from 'src/artist/artist.dto';
 import { AlbumRO } from 'src/album/album.dto';
 import { Type, Exclude, Expose, Transform } from 'class-transformer';
 import moment from 'moment';
+import { UserRO } from '../user/user.dto';
 
 export class TrackDTO { }
 
@@ -60,4 +61,22 @@ export class TrackRO {
     @Type(() => AlbumRO)
     @ApiProperty({ type: () => AlbumRO })
     album: AlbumRO;
+
+    @ApiProperty()
+    upVoteLink: string;
+
+    @ApiProperty()
+    downVoteLink: string;
+
+    @ApiProperty({ type: () => UserRO, isArray: true })
+    upVotes: UserRO[];
+
+    @ApiProperty({ type: () => UserRO, isArray: true })
+    downVotes: UserRO[];
+
+    @ApiProperty()
+    nbUpVotes: number;
+
+    @ApiProperty()
+    nbDownVotes: number;
 }
