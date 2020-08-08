@@ -21,12 +21,16 @@ export class TrackController {
 
     @Get(':id/upvote')
     @UseGuards(new AuthGuard())
+    @ApiOperation({ summary: 'Vote up track' })
+    @ApiResponse({ type: TrackRO, status: 200 })
     async upvote(@Param('id') trackId: number, @User('id') userId: string): Promise<TrackRO> {
         return await this.trackService.upvote(trackId, userId);
     }
 
     @Get(':id/downvote')
     @UseGuards(new AuthGuard())
+    @ApiOperation({ summary: 'Vote down track' })
+    @ApiResponse({ type: TrackRO, status: 200 })
     async downvote(@Param('id') trackId: number, @User('id') userId: string): Promise<TrackRO> {
         return await this.trackService.downvote(trackId, userId);
     }
