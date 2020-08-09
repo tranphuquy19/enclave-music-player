@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from '../header/header';
-import Sidebar from '../sidebar/sidebar';
-import TrackList from '../../features/home/homePage';
-import routerRendering from '../commons/routerRendering';
-import { homeRoutes } from '../routes/homeRoutes';
+import Header from '../components/UIShared/header/header';
+import Sidebar from '../components/UIShared/sidebar/sidebar';
+import TrackList from '../components/features/home/homePage';
+import routerRendering from '../components/commons/routerRendering';
+import { homeRoutes } from '../components/routes/homeRoutes';
 
 class Home extends Component {
     render() {

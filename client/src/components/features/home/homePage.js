@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload, faPlay, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import './homePage.css';
-import logo from '../../assets/img/avatar2.png';
+import logo from '../../../assets/img/avatar2.png';
 
 class HomePage extends Component {
     render() {
@@ -42,7 +42,6 @@ class HomePage extends Component {
                                 </div>
                             </div>
                         </li>
-
                     </ul>
                 </div>
                 {/* Artist, Album */}

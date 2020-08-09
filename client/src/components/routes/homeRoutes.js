@@ -1,7 +1,7 @@
 import React from 'react'
-import HomePage from '../../features/home/homePage'
-import TrackList from '../../features/trackList/trackList'
-import Album from '../../features/albumList/album'
+import HomePage from '../features/home/homePage'
+import Album from '../features/albumList/album'
+import Track from '../../containers/Track';
 
 export const homeRoutes = [
     {
@@ -12,7 +12,7 @@ export const homeRoutes = [
     {
         path: '/tracklist',
         exact: true,
-        main: () => <TrackList/>
+        main: () => <Track/>
     },
     {
         path: '/album',
