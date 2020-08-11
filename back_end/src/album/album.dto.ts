@@ -2,6 +2,7 @@ import { Type, Exclude, Expose, Transform } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 import moment from 'moment';
 import { TrackRO } from '../track/track.dto';
+import { ArtistRO } from '../artist/artist.dto';
 
 export class AlbumDTO { }
 
@@ -53,6 +54,16 @@ export class AlbumRO {
     @Type(() => TrackRO)
     @ApiProperty({ type: () => TrackRO, isArray: true })
     tracks: TrackRO[];
+
+    @Expose()
+    @Type(() => ArtistRO)
+    @ApiProperty({type: () => ArtistRO})
+    artist: ArtistRO;
+
+    @Expose()
+    @Type(() => ArtistRO)
+    @ApiProperty({type: () => ArtistRO, isArray: true})
+    contributors: ArtistRO[];
 
     @Expose()
     @ApiProperty()

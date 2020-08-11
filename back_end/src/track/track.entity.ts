@@ -1,9 +1,9 @@
-import { Entity, Column, CreateDateColumn, UpdateDateColumn, JoinTable, ManyToMany, PrimaryColumn } from "typeorm";
+import { Entity, Column, CreateDateColumn, UpdateDateColumn, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UserEntity } from '../user/user.entity';
 
 @Entity('track')
 export class TrackEntity {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column('int')

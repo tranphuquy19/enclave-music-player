@@ -21,7 +21,6 @@ export class UserController {
     @ApiOperation({ summary: 'User login' })
     @ApiResponse({ type: UserRO, status: 200 })
     @Post('login')
-    @UsePipes(ValidationPipe)
     login(@Body() data: UserDTO): Promise<UserRO> {
         return this.userService.login(data);
     }
