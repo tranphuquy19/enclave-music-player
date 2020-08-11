@@ -1,5 +1,7 @@
 type Album {
     id: ID!
+    artist: Artist!
+    contributors: [Artist!]!
     title: String!
     link: String!
     cover: String!
