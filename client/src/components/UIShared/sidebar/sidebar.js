@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import './sidebar.css'
 import { NavLink } from 'react-router-dom';
+import Logo from '../../../assets/img/logo.png'
 
 
 class Sidebar extends Component {
-    handleOnClick = () => {
-        window.location.replace("/")
-    }
     render() {
         return (
             <div id="sidebar">
-                <ul className="custom_sidebar">
-                    <li>
-                        <div className="logo">
-                            <h2 onClick={this.handleOnClick}>Music</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <ul className="sidebar_menu">
-                            <li className="sidebar_li"><NavLink to="/tracklist">Track List</NavLink></li>
-                            <li className="sidebar_li"><NavLink to="/album">Album List</NavLink></li>
-                        </ul>
-                    </li>
-                </ul>
+                <div className="custom_sidebar">
+                    <section className="logo">
+                        <NavLink to="/"><img src={Logo} alt="logo" /></NavLink>
+                    </section>
+                    <section className="sidebar_menu">
+                        <NavLink to="/tracklist" className="sidebar_item" activeClassName="activeLink">
+                            <span>Track List</span>
+                        </NavLink>
+                        <NavLink to="/album" className="sidebar_item" activeClassName="activeLink">
+                            <span>Album List</span>
+                        </NavLink>
+                    </section>
+                    <section className="sidebar_libra">
+                        <h4>List Favorite</h4>
+                        <NavLink to="/aaa" className="sidebar_item" activeClassName="activeLink">
+                            <span>Songs</span>
+                        </NavLink>
+                    </section>
+                </div>
             </div>
         );
     }

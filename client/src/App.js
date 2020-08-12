@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import routerRendering from './components/commons/routerRendering';
-import { masterRoutes } from './components/routes/masterRoute';
+import { masterRoutes } from './routes/masterRoute';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {

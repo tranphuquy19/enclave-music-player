@@ -6,33 +6,63 @@
 }
 #sidebar .logo {
     margin-bottom: 40px;
+    text-align: center;
 }
 
-#sidebar ul {
-    list-style: none;
-    padding-top: 20px;
+#sidebar .logo img {
+    height: 80px;
+    width: 80px;
 }
+
 
 .custom_sidebar {
     padding: 0px;
-    text-align: center;
+}
+.custom_sidebar h4{
+    margin-left: 90px;
+    font-weight: 400;
+    color: #686868;
+}
+
+.custom_sidebar span{
+    margin-left: 80px;
 }
 
 .sidebar_menu {
     padding: 0px;
 }
-.sidebar_li {
+
+.sidebar_item{
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 20px 0;
+    padding: 10px;
+}
+.sidebar_item:hover{
+    background: #F6A286;
+    color: white;
+    border-top-right-radius: 20px ;
+    border-bottom-right-radius: 20px ;
+    text-decoration: none;
     padding: 10px;
 }
 
-.sidebar_li:hover{
-    background: #F6A286;
-    border-top-right-radius: 20px ;
-    border-bottom-right-radius: 20px ;
+.sidebar_libra{
+    margin-top: 100px;
 }
 
-.sidebar_li:active{
+
+.inactiveLink {
+    color: #fff;
+    text-decoration: none;
+}
+.activeLink {
     background: #F6A286;
+    color: white;
     border-top-right-radius: 20px ;
     border-bottom-right-radius: 20px ;
+    text-decoration: none;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(255, 176, 124, 0.753), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

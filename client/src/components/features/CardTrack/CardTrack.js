@@ -1,11 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faPlay, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faDownload, faHeart } from '@fortawesome/free-solid-svg-icons'
 import './CardTrack.css';
+import PlayButton from '../../UIShared/Button/PlayButton';
+import convertDurationTrack from '../convertDurationTrack';
 
 const CardTrack = (props) => {
+    // console.log(props);
     const { track } = props;
-    const { titleShort, artist, album } = track;
+    const { titleShort, artist, album, duration, preview } = track;
     const { name } = artist;
     const { cover, title } = album
     return (
@@ -17,27 +20,28 @@ const CardTrack = (props) => {
                             <h4>{titleShort}</h4>
                             <span>{name}</span>
                         </div>
+                        <p className="duration">{convertDurationTrack(duration)}</p> 
                         <div className="track-actions">
                             <div className="track-toolbar">
-                                <button className="track-icon">
-                                    <FontAwesomeIcon
-                                        title="Play"
-                                        icon={faPlay} />
+                                <button className="track-icon track-icon-play">
+                                    <PlayButton url={preview} />
                                 </button>
-                                <button className="track-icon">
+                                <button className="track-icon track-icon-heart">
                                     <FontAwesomeIcon
                                         title="Add WishList"
-                                        icon={faMoon} />
+                                        icon={faHeart}
+                                        size="sm" />
                                 </button>
-                                <button className="track-icon">
+                                <button className="track-icon track-icon-down">
                                     <FontAwesomeIcon
                                         title="Download"
-                                        icon={faDownload} />
+                                        icon={faDownload}
+                                        size="sm" />
                                 </button>
                             </div>
                         </div>
                     </li>
-                    </ul>
+        </ul>
 
 
     );

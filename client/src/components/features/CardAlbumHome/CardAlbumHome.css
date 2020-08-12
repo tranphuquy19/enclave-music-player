@@ -1,20 +1,10 @@
-.home-page{
-    width: 85%;
-    float: right;
-    padding-top: 40px;
-}
-
-
-
-/* Album */
-
 .album-list{
     width: 30%;
     height: 400px;
 }
 
 .album-list-content{
-    height: 400px;
+    height: auto;
     margin-top: 20px;
     margin-right: 20px;
     border-radius: 5px;
@@ -23,6 +13,7 @@
 }
 
 .album-list-content ul {
+    background-color: rgba(235, 235, 235, 0.986);
     display: flex;
     padding: 10px;
     border-bottom: 1px solid #cccccc;

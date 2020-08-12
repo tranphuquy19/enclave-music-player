@@ -11,17 +11,25 @@
     color: #ffffff;
     background: #02AAB0;  /* fallback for old browsers */
     background: linear-gradient(to right, #00CDAC, #02AAB0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 .track-point{
     width: 10%;
 }
 .track-author{
-    width: 60%;
+    width: 50%;
 }
 .track-author h4 {
     font-size: 18px;
 }
+.track-author span {
+    color: #EF6A98;
+}
+.duration {
+    margin-bottom: 0;
+    height: 100%;
+    width: 10%;
+    align-self: center;
+} 
 .track-action{
     width: 40%;
     float: right;
@@ -34,13 +42,15 @@
     justify-content: center;
 }
 .track-icon{
+    outline: none;
     margin-right: 20px;
     border: 0;
-    color: blue;
-    background-color: transparent;
     cursor: pointer;
+    background-color: transparent;
 }
+
 .track-list ul {
+    background-color: rgba(235, 235, 235, 0.986);
     width: 100%;
     border-radius: 5px;
     border: 1px solid #ffffff;
@@ -51,7 +61,6 @@
     display: flex;
     list-style: none;
     padding: 10px;
-    margin-bottom: 10px;
 }
 .track-li img{
     width: 60px;

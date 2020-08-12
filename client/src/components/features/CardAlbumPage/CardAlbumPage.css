@@ -1,15 +1,15 @@
 .album{
-    width: 80%;
-    float: right;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+  grid-gap: 32px;
 }
-.album-container{
+/* .album-container{
     display: flex;
     justify-content: center;
     width: 100%;
-}
+} */
 .album .album-card {
     position: relative;
-    width: 30%;
     border-radius: 10px;
     background-clip: border-box;
     border: none;
@@ -46,6 +46,12 @@
     font-size: 80px;
     transition: 0.7s;
     color: #fff;
+  }
+  .container-right{
+    grid-area: main;
+    max-width: 90em;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   i {

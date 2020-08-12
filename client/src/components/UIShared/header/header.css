@@ -4,16 +4,30 @@
     padding: 0;
 }
 .navbar {
+    background: linear-gradient(-45deg, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     width: 85%;
     float: right;
     display: flex;
     justify-content: flex-end;
     padding: 20px 10px;
-
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .nav-content{
     list-style: none;
+    margin-bottom: 0;
 }
 .nav-item {
     margin-right: 20px;
@@ -31,11 +45,12 @@
 }
 
 .search-btn{
-    color: #e84118;
+    color: white;
     float: left;
     display: flex;
     margin-top: 10px;
     margin-right: 10px;
+    
 }
 
 .search-txt {
@@ -48,4 +63,13 @@
     color: rgb(0, 0, 0);
     font-size: 16px;
     width: 300px;
+    transition: width .4s ease-in-out;
+}
+::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+.search-txt:focus{
+    width: 500px;
+    
 }
