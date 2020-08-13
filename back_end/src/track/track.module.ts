@@ -9,6 +9,7 @@ import { UserEntity } from '../user/user.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([TrackEntity, UserEntity])],
   controllers: [TrackController],
-  providers: [TrackService, TrackResolver]
+  providers: [TrackService, TrackResolver],
+  exports: [TrackService]
 })
 export class TrackModule { }
