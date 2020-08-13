@@ -1,11 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { PlaylistRO } from './playlist.dto';
 import { PlaylistApi } from './playlist.api';
+import { TrackService } from '../track/track.service';
 
 @Injectable()
 export class PlaylistService {
+    constructor(private trackService: TrackService) { }
 
-    readPlaylist(id: number): Promise<PlaylistRO> {
-        return PlaylistApi.readPlaylist(id);
+    async readPlaylist(id: number): Promise<PlaylistRO> {
+        let resPlaylist = await PlaylistApi.readPlaylist(id);
+        const { tracks } = resPlaylist;
+        resPlaylist.tracks = await this.trackService.mergeDatas(tracks);
+        return resPlaylist;
     }
 }

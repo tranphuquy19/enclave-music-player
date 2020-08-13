@@ -7,7 +7,7 @@ module.exports = {
     "database": process.env.DATABASE_NAME,
     "synchronize": true,
     "dropSchema": false,
-    "logging": true,
+    "logging": false,
     "entities": [
         "./dist/**/*.entity{.ts,.js}"
     ]
