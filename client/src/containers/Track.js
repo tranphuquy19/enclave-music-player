@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CardTrack from '../components/features/CardTrack/CardTrack';
 import Loading from '../components/UIShared/loading/Loading';
+import callApi from '../utils/ApiCaller';
 
 class TrackList extends Component {
     constructor(props) {
@@ -13,15 +14,19 @@ class TrackList extends Component {
 
     }
     async componentDidMount() {
-        let { data } = await axios({
-            method: 'GET',
-            url: 'https://api.doraneko.tk/playlist/789794642',
-            data: null
-        });
-
+        let { data } = await callApi('playlist/789794642', 'GET', null);
         this.setState({
             tracks: data.tracks
         })
+        // let { data } = await axios({
+        //     method: 'GET',
+        //     url: 'https://api.doraneko.tk/playlist/789794642',
+        //     data: null
+        // });
+
+        // this.setState({
+        //     tracks: data.tracks
+        // })
         // console.log(this.state.tracks);
     }
     render() {

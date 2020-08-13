@@ -18,7 +18,6 @@ class Login extends Component {
         signInButton.addEventListener('click', () => {
             container.classList.remove('right-panel-active');
         });
-        console.log("L7");
     }
     render() {
         return (
