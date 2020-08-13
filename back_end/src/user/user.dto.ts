@@ -19,6 +19,11 @@ export class UserDTO {
     password: string;
 }
 
+export class UserLoginRegister {
+    username: string;
+    password: string;
+}
+
 export class UserRO {
     @ApiProperty()
     id: string;
