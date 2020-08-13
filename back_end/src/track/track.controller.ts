@@ -19,7 +19,7 @@ export class TrackController {
         return this.trackService.readTrack(id);
     }
 
-    @Get(':id/upvote')
+    @Get(':id/voteup')
     @UseGuards(new AuthGuard())
     @ApiOperation({ summary: 'Vote up track' })
     @ApiResponse({ type: TrackRO, status: 200 })
@@ -27,7 +27,7 @@ export class TrackController {
         return await this.trackService.upvote(trackId, userId);
     }
 
-    @Get(':id/downvote')
+    @Get(':id/votedown')
     @UseGuards(new AuthGuard())
     @ApiOperation({ summary: 'Vote down track' })
     @ApiResponse({ type: TrackRO, status: 200 })
