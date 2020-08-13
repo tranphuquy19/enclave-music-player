@@ -1,22 +1,33 @@
 import { Injectable, CanActivate, ExecutionContext, HttpException, HttpStatus } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
 import { config } from './config';
+import { GqlExecutionContext } from '@nestjs/graphql';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
     async canActivate(context: ExecutionContext): Promise<boolean> {
         const request = context.switchToHttp().getRequest();
 
-        const { authorization } = request.headers;
+        if (request) {
+            const { authorization } = request.headers;
 
-        if (!authorization) return false;
+            if (!authorization) return false;
 
-        request.user = await this.validateToken(authorization);
+            request.user = await this.validateToken(authorization);
+            return true;
+        } else {
+            const ctx: any = GqlExecutionContext.create(context).getContext();
+            const { authorization } = ctx.headers;
 
-        return true;
+            if (!authorization) return false;
+
+            ctx.user = await this.validateToken(authorization);
+            return true;
+        }
+
     }
 
-    async validateToken(auth: string) : Promise<any>{
+    async validateToken(auth: string): Promise<any> {
         const [tokenType, token] = auth.split(' ');
         const { jwtSecretKey } = config;
         if (tokenType !== 'Bearer') {

@@ -11,6 +11,7 @@ type Auth {
 
 type Query {
   users: [User!]
+  whoami: User!
 }
 
 type Mutation {

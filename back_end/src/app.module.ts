@@ -10,7 +10,8 @@ import { PlaylistModule } from './playlist/playlist.module';
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      typePaths: ['./**/*.graphql']
+      typePaths: ['./**/*.graphql'],
+      context: ({ req }) => ({ headers: req.headers })
     }),
     TypeOrmModule.forRoot(),
     ArtistModule,
