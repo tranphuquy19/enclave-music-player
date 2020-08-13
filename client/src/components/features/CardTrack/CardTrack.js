@@ -29,14 +29,12 @@ const CardTrack = (props) => {
                                 <button className="track-icon track-icon-heart">
                                     <FontAwesomeIcon
                                         title="Add WishList"
-                                        icon={faHeart}
-                                        size="sm" />
+                                        icon={faHeart} />
                                 </button>
                                 <button className="track-icon track-icon-down">
                                     <FontAwesomeIcon
                                         title="Download"
-                                        icon={faDownload}
-                                        size="sm" />
+                                        icon={faDownload}/>
                                 </button>
                             </div>
                         </div>

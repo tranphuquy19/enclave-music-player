@@ -18,7 +18,7 @@ const CardAlbumPage = (props) => {
             <div className="face face2">
                 <div className="content">
                     <h3>
-                        <NavLink to="/aaa"> {album.title} </NavLink>
+                        <NavLink to={`/album/${album.id}`}> {album.title} </NavLink>
                     </h3>
                     <p>{artist.name}</p>
                 </div>
