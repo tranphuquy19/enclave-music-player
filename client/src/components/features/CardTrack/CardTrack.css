@@ -48,9 +48,11 @@
     cursor: pointer;
     background-color: transparent;
 }
+.track-icon:hover{
+    transform: scale(1.2);
+}
 
 .track-list ul {
-    background-color: rgba(235, 235, 235, 0.986);
     width: 100%;
     border-radius: 5px;
     border: 1px solid #ffffff;
