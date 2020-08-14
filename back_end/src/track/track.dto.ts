@@ -48,6 +48,10 @@ export class TrackRO {
     preview: string;
 
     @Expose()
+    @ApiProperty()
+    type: string;
+
+    @Expose()
     @Type(() => ArtistRO)
     @ApiProperty({ type: () => ArtistRO, isArray: true })
     contributors: ArtistRO[];
