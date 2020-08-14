@@ -10,6 +10,7 @@ type Track {
     preview: String!
     contributors: [Artist!]!
     artist: Artist!
+    type: String!
     album: Album!
     upVoteLink: String!
     downVoteLink: String!
