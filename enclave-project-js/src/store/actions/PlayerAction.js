@@ -21,15 +21,20 @@ const setTracks = (data) => {
 
         const {playerReducer} = store.getState();
 
+        const {playingIndex} = playerReducer;
+
         dispatch({
             type: SET_TRACKS,
             payload: {
                 ...playerReducer,
-                previous: {},
-                current: _tracks[0] || {},
-                next: _tracks[1] || {}
+                isPlaying: true,
+                queue: _tracks,
+                playingIndex: 0,
+                previous: _tracks[playingIndex - 1] || {},
+                current: _tracks[playingIndex] || {},
+                next: _tracks[playingIndex + 1] || {}
             }
-        })
+        });
     }
 }
 
