@@ -11,6 +11,8 @@ const FIND_TRACKS = 'FIND_TRACKS';
 
 const LOAD_ALBUMS = 'LOAD_ALBUMS';
 
+const LOAD_ARTISTS = 'LOAD_ARTISTS';
+
 export {
     USER_LOGIN,
     USER_LOGOUT,
@@ -19,5 +21,7 @@ export {
     GET_TRACK,
     FIND_TRACKS,
 
-    LOAD_ALBUMS
+    LOAD_ALBUMS,
+
+    LOAD_ARTISTS
 }

@@ -3,5 +3,6 @@
  * @author: tranphuquy19@gmail.com
  */
 export * from './AlbumsReducer';
+export * from './ArtistsReducer';
 export * from './TracksReducer';
 export * from './UserReducer';

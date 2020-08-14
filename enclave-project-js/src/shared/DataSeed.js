@@ -2409,6 +2409,90 @@ const dataSeeds = {
             "radio": true,
             "tracklist": "https://api.deezer.com/artist/10803980/top?limit=50",
             "type": "artist"
+        },
+        {
+            "id": 5400939,
+            "name": "Son Tung M-TP",
+            "link": "https://www.deezer.com/artist/5400939",
+            "share": "https://www.deezer.com/artist/5400939?utm_source=deezer&utm_content=artist-5400939&utm_term=0_1597421973&utm_medium=web",
+            "picture": "https://api.deezer.com/artist/5400939/image",
+            "pictureSmall": "https://e-cdns-images.dzcdn.net/images/artist/e1307dfb5cda23df346e1fa18e8b4feb/56x56-000000-80-0-0.jpg",
+            "pictureMedium": "https://e-cdns-images.dzcdn.net/images/artist/e1307dfb5cda23df346e1fa18e8b4feb/250x250-000000-80-0-0.jpg",
+            "pictureBig": "https://e-cdns-images.dzcdn.net/images/artist/e1307dfb5cda23df346e1fa18e8b4feb/500x500-000000-80-0-0.jpg",
+            "pictureXl": "https://e-cdns-images.dzcdn.net/images/artist/e1307dfb5cda23df346e1fa18e8b4feb/1000x1000-000000-80-0-0.jpg",
+            "radio": true,
+            "tracklist": "https://api.deezer.com/artist/5400939/top?limit=50",
+            "type": "artist"
+        },
+        {
+            "id": 4777948,
+            "name": "Hoang Thuy Linh",
+            "link": "https://www.deezer.com/artist/4777948",
+            "share": "https://www.deezer.com/artist/4777948?utm_source=deezer&utm_content=artist-4777948&utm_term=0_1597422031&utm_medium=web",
+            "picture": "https://api.deezer.com/artist/4777948/image",
+            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/fb59d54a36639e2ae1ccac0b8c7ba23f/56x56-000000-80-0-0.jpg",
+            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/fb59d54a36639e2ae1ccac0b8c7ba23f/250x250-000000-80-0-0.jpg",
+            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/fb59d54a36639e2ae1ccac0b8c7ba23f/500x500-000000-80-0-0.jpg",
+            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/fb59d54a36639e2ae1ccac0b8c7ba23f/1000x1000-000000-80-0-0.jpg",
+            "radio": false,
+            "tracklist": "https://api.deezer.com/artist/4777948/top?limit=50",
+            "type": "artist"
+        },
+        {
+            "id": 2352221,
+            "name": "Tuan Hung",
+            "link": "https://www.deezer.com/artist/2352221",
+            "share": "https://www.deezer.com/artist/2352221?utm_source=deezer&utm_content=artist-2352221&utm_term=0_1597422314&utm_medium=web",
+            "picture": "https://api.deezer.com/artist/2352221/image",
+            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/56x56-000000-80-0-0.jpg",
+            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/250x250-000000-80-0-0.jpg",
+            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/500x500-000000-80-0-0.jpg",
+            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/1000x1000-000000-80-0-0.jpg",
+            "radio": false,
+            "tracklist": "https://api.deezer.com/artist/2352221/top?limit=50",
+            "type": "artist"
+        },
+        {
+            "id": 12246,
+            "name": "Taylor Swift",
+            "link": "https://www.deezer.com/artist/12246",
+            "share": "https://www.deezer.com/artist/12246?utm_source=deezer&utm_content=artist-12246&utm_term=0_1597422346&utm_medium=web",
+            "picture": "https://api.deezer.com/artist/12246/image",
+            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/c4097f698a0456c37bb920821fcb06ac/56x56-000000-80-0-0.jpg",
+            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/c4097f698a0456c37bb920821fcb06ac/250x250-000000-80-0-0.jpg",
+            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/c4097f698a0456c37bb920821fcb06ac/500x500-000000-80-0-0.jpg",
+            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/c4097f698a0456c37bb920821fcb06ac/1000x1000-000000-80-0-0.jpg",
+            "radio": true,
+            "tracklist": "https://api.deezer.com/artist/12246/top?limit=50",
+            "type": "artist"
+        },
+        {
+            "id": 75798,
+            "name": "Adele",
+            "link": "https://www.deezer.com/artist/75798",
+            "share": "https://www.deezer.com/artist/75798?utm_source=deezer&utm_content=artist-75798&utm_term=0_1597422412&utm_medium=web",
+            "picture": "https://api.deezer.com/artist/75798/image",
+            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/22c83631d238c4e21800a75a79c54c61/56x56-000000-80-0-0.jpg",
+            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/22c83631d238c4e21800a75a79c54c61/250x250-000000-80-0-0.jpg",
+            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/22c83631d238c4e21800a75a79c54c61/500x500-000000-80-0-0.jpg",
+            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/22c83631d238c4e21800a75a79c54c61/1000x1000-000000-80-0-0.jpg",
+            "radio": true,
+            "tracklist": "https://api.deezer.com/artist/75798/top?limit=50",
+            "type": "artist"
+        },
+        {
+            "id": 9635624,
+            "name": "Billie Eilish",
+            "link": "https://www.deezer.com/artist/9635624",
+            "share": "https://www.deezer.com/artist/9635624?utm_source=deezer&utm_content=artist-9635624&utm_term=0_1597433849&utm_medium=web",
+            "picture": "https://api.deezer.com/artist/9635624/image",
+            "pictureSmall": "https://e-cdns-images.dzcdn.net/images/artist/0b6ecc0e0e717681c8d7da4c9b48a8f5/56x56-000000-80-0-0.jpg",
+            "pictureMedium": "https://e-cdns-images.dzcdn.net/images/artist/0b6ecc0e0e717681c8d7da4c9b48a8f5/250x250-000000-80-0-0.jpg",
+            "pictureBig": "https://e-cdns-images.dzcdn.net/images/artist/0b6ecc0e0e717681c8d7da4c9b48a8f5/500x500-000000-80-0-0.jpg",
+            "pictureXl": "https://e-cdns-images.dzcdn.net/images/artist/0b6ecc0e0e717681c8d7da4c9b48a8f5/1000x1000-000000-80-0-0.jpg",
+            "radio": true,
+            "tracklist": "https://api.deezer.com/artist/9635624/top?limit=50",
+            "type": "artist"
         }
     ],
     playlist: [
@@ -6635,90 +6719,6 @@ const dataSeeds = {
                 }
             ]
         },
-        {
-            "id": 5400939,
-            "name": "Son Tung M-TP",
-            "link": "https://www.deezer.com/artist/5400939",
-            "share": "https://www.deezer.com/artist/5400939?utm_source=deezer&utm_content=artist-5400939&utm_term=0_1597421973&utm_medium=web",
-            "picture": "https://api.deezer.com/artist/5400939/image",
-            "pictureSmall": "https://e-cdns-images.dzcdn.net/images/artist/e1307dfb5cda23df346e1fa18e8b4feb/56x56-000000-80-0-0.jpg",
-            "pictureMedium": "https://e-cdns-images.dzcdn.net/images/artist/e1307dfb5cda23df346e1fa18e8b4feb/250x250-000000-80-0-0.jpg",
-            "pictureBig": "https://e-cdns-images.dzcdn.net/images/artist/e1307dfb5cda23df346e1fa18e8b4feb/500x500-000000-80-0-0.jpg",
-            "pictureXl": "https://e-cdns-images.dzcdn.net/images/artist/e1307dfb5cda23df346e1fa18e8b4feb/1000x1000-000000-80-0-0.jpg",
-            "radio": true,
-            "tracklist": "https://api.deezer.com/artist/5400939/top?limit=50",
-            "type": "artist"
-        },
-        {
-            "id": 4777948,
-            "name": "Hoang Thuy Linh",
-            "link": "https://www.deezer.com/artist/4777948",
-            "share": "https://www.deezer.com/artist/4777948?utm_source=deezer&utm_content=artist-4777948&utm_term=0_1597422031&utm_medium=web",
-            "picture": "https://api.deezer.com/artist/4777948/image",
-            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/fb59d54a36639e2ae1ccac0b8c7ba23f/56x56-000000-80-0-0.jpg",
-            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/fb59d54a36639e2ae1ccac0b8c7ba23f/250x250-000000-80-0-0.jpg",
-            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/fb59d54a36639e2ae1ccac0b8c7ba23f/500x500-000000-80-0-0.jpg",
-            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/fb59d54a36639e2ae1ccac0b8c7ba23f/1000x1000-000000-80-0-0.jpg",
-            "radio": false,
-            "tracklist": "https://api.deezer.com/artist/4777948/top?limit=50",
-            "type": "artist"
-        },
-        {
-            "id": 2352221,
-            "name": "Tuan Hung",
-            "link": "https://www.deezer.com/artist/2352221",
-            "share": "https://www.deezer.com/artist/2352221?utm_source=deezer&utm_content=artist-2352221&utm_term=0_1597422314&utm_medium=web",
-            "picture": "https://api.deezer.com/artist/2352221/image",
-            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/56x56-000000-80-0-0.jpg",
-            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/250x250-000000-80-0-0.jpg",
-            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/500x500-000000-80-0-0.jpg",
-            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/1000x1000-000000-80-0-0.jpg",
-            "radio": false,
-            "tracklist": "https://api.deezer.com/artist/2352221/top?limit=50",
-            "type": "artist"
-        },
-        {
-            "id": 12246,
-            "name": "Taylor Swift",
-            "link": "https://www.deezer.com/artist/12246",
-            "share": "https://www.deezer.com/artist/12246?utm_source=deezer&utm_content=artist-12246&utm_term=0_1597422346&utm_medium=web",
-            "picture": "https://api.deezer.com/artist/12246/image",
-            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/c4097f698a0456c37bb920821fcb06ac/56x56-000000-80-0-0.jpg",
-            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/c4097f698a0456c37bb920821fcb06ac/250x250-000000-80-0-0.jpg",
-            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/c4097f698a0456c37bb920821fcb06ac/500x500-000000-80-0-0.jpg",
-            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/c4097f698a0456c37bb920821fcb06ac/1000x1000-000000-80-0-0.jpg",
-            "radio": true,
-            "tracklist": "https://api.deezer.com/artist/12246/top?limit=50",
-            "type": "artist"
-        },
-        {
-            "id": 75798,
-            "name": "Adele",
-            "link": "https://www.deezer.com/artist/75798",
-            "share": "https://www.deezer.com/artist/75798?utm_source=deezer&utm_content=artist-75798&utm_term=0_1597422412&utm_medium=web",
-            "picture": "https://api.deezer.com/artist/75798/image",
-            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/22c83631d238c4e21800a75a79c54c61/56x56-000000-80-0-0.jpg",
-            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/22c83631d238c4e21800a75a79c54c61/250x250-000000-80-0-0.jpg",
-            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/22c83631d238c4e21800a75a79c54c61/500x500-000000-80-0-0.jpg",
-            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/22c83631d238c4e21800a75a79c54c61/1000x1000-000000-80-0-0.jpg",
-            "radio": true,
-            "tracklist": "https://api.deezer.com/artist/75798/top?limit=50",
-            "type": "artist"
-        },
-        {
-            "id": 5291810,
-            "name": "Lynk Lee",
-            "link": "https://www.deezer.com/artist/5291810",
-            "share": "https://www.deezer.com/artist/5291810?utm_source=deezer&utm_content=artist-5291810&utm_term=0_1597422457&utm_medium=web",
-            "picture": "https://api.deezer.com/artist/5291810/image",
-            "pictureSmall": "https://e-cdns-images.dzcdn.net/images/artist/bfe69165ed1fbb8a4018fa1d8768f28d/56x56-000000-80-0-0.jpg",
-            "pictureMedium": "https://e-cdns-images.dzcdn.net/images/artist/bfe69165ed1fbb8a4018fa1d8768f28d/250x250-000000-80-0-0.jpg",
-            "pictureBig": "https://e-cdns-images.dzcdn.net/images/artist/bfe69165ed1fbb8a4018fa1d8768f28d/500x500-000000-80-0-0.jpg",
-            "pictureXl": "https://e-cdns-images.dzcdn.net/images/artist/bfe69165ed1fbb8a4018fa1d8768f28d/1000x1000-000000-80-0-0.jpg",
-            "radio": false,
-            "tracklist": "https://api.deezer.com/artist/5291810/top?limit=50",
-            "type": "artist"
-        }
     ],
     tracks: [
         {
@@ -8521,8 +8521,8 @@ const dataSeeds = {
             "nbDownVotes": 0
         }
     ],
-    nbMaxAlbums: 7,
-    nbMaxArtists: 7,
+    nbMaxAlbums: 8,
+    nbMaxArtists: 12,
     nbMaxPlaylists: 1,
     nbMaxTracks: 50
 }

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {ArtistListComponent} from "./ArtistListComponent";
+import ArtistListComponent from "./ArtistListComponent";
 
 export class ArtistComponent extends Component {
     render() {

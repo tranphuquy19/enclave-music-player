@@ -5,13 +5,14 @@ import 'rc-slider/assets/index.css';
 import './App.css';
 import {HeaderComponent} from "./components/header/HeaderComponent_";
 import {SidebarComponent} from "./components/sidebar/SidebarComponent_";
-import {AlbumComponent} from "./components/album/AlbumComponent_";
+import {AlbumComponent} from "./components/album/_AlbumComponent";
 import {PlaylistComponent} from "./components/playlist/PlaylistComponent_";
-import {ArtistComponent} from "./components/artist/ArtistComponent_";
+import {ArtistComponent} from "./components/artist/_ArtistComponent";
 import {TrackComponent} from "./components/track/TrackComponent_";
 import PlayerComponent from "./components/player/PlayerComponent";
 import {connect} from "react-redux";
 import {loadAlbumsSeed} from "./store/actions/AlbumActions";
+import {loadArtistsSeed} from "./store/actions/ArtistActions";
 
 class App extends Component {
     constructor(props) {
@@ -19,7 +20,8 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.props._loadAlbumSeed();
+        this.props._loadAlbumsSeed();
+        this.props._loadArtistsSeed();
     }
 
     render() {
@@ -43,8 +45,12 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        _loadAlbumSeed: () => {
+        _loadAlbumsSeed: () => {
             dispatch(loadAlbumsSeed());
+        },
+
+        _loadArtistsSeed: () => {
+            dispatch(loadArtistsSeed());
         }
     }
 }

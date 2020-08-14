@@ -8,7 +8,6 @@ import DataSeed from '../../shared/DataSeed';
 
 const loadAlbumsSeed = () => {
     const {albums, nbMaxAlbums} = DataSeed;
-
     const _albums = albums.slice(0, nbMaxAlbums);
 
     return async dispatch => {

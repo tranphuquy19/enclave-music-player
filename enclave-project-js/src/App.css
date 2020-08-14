@@ -290,6 +290,7 @@
 }
 
 .album_item {
+    width: 15.375rem;
     position: relative;
     padding-bottom: 10px;
     box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.5);
@@ -322,6 +323,11 @@
 }
 
 .album_item .album_title {
+    width: 15.375rem;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    -webkit-line-clamp: 1;
     padding: 0.5rem 1rem;
 }
 
