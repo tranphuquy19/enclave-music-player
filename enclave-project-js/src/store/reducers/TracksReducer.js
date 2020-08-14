@@ -6,12 +6,12 @@
 import Track from "../models/Track";
 import {GET_TRACK} from "../../shared/Types";
 
-const tracksInitState = Track;
+const tracksInitState = [Track];
 
-const trackReducer = (state = tracksInitState, action) => {
-    switch (action.type) {
+export const tracksReducer = (state = tracksInitState, {type, payload}) => {
+    switch (type) {
         case GET_TRACK:
-            return action.payload.data;
+            return {...payload.data};
         default:
             return state;
     }

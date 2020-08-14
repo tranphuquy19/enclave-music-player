@@ -6,19 +6,17 @@
 import User from "../models/User";
 import {USER_LOGIN, USER_LOGOUT, USER_REGISTER} from "../../shared/Types";
 
-const userInitState = [User];
+const userInitState = User;
 
-const userReducer = (state = userInitState, action) => {
-    switch (action.type) {
+export const userReducer = (state = userInitState, {type, payload}) => {
+    switch (type) {
         case USER_LOGIN:
-            return action.payload.data;
+            return {...payload.data};
         case USER_REGISTER:
-            return action.payload.data;
+            return {...payload.data};
         case USER_LOGOUT:
             return User;
         default:
             return state;
     }
 };
-
-export default userReducer;

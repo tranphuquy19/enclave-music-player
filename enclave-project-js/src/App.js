@@ -10,10 +10,16 @@ import {PlaylistComponent} from "./components/playlist/PlaylistComponent_";
 import {ArtistComponent} from "./components/artist/ArtistComponent_";
 import {TrackComponent} from "./components/track/TrackComponent_";
 import PlayerComponent from "./components/player/PlayerComponent";
+import {connect} from "react-redux";
+import {loadAlbumsSeed} from "./store/actions/AlbumActions";
 
 class App extends Component {
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+        this.props._loadAlbumSeed();
     }
 
     render() {
@@ -35,4 +41,12 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        _loadAlbumSeed: () => {
+            dispatch(loadAlbumsSeed());
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(App);
