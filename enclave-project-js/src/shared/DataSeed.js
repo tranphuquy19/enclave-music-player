@@ -8521,6 +8521,10 @@ const dataSeeds = {
             "nbDownVotes": 0
         }
     ],
+    nbMaxAlbums: 7,
+    nbMaxArtists: 7,
+    nbMaxPlaylists: 1,
+    nbMaxTracks: 50
 }
 
 export default dataSeeds;
