@@ -3,10 +3,6 @@ import {ArtistItemComponent} from "./ArtistItemComponent";
 import {connect} from "react-redux";
 
 class ArtistListComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {artists} = this.props;
         const artistList = artists.map((artist, index) => <ArtistItemComponent {...artist} key={index}/>);

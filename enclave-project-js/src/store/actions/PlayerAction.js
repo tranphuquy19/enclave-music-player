@@ -9,25 +9,24 @@ import {fetchArtistById, fetchAlbumById} from '../../requires/_index'
 import {fetchPlaylistById} from "../../requires/PlaylistQueries";
 import {fetchTrackById} from "../../requires/TrackQueries";
 
-const setTracks = async (data) => {
-    const {tracks} = findLocal(data);
+const setTracks = (data) => {
+    return async dispatch => {
+        const {tracks} = findLocal(data);
+        let _tracks = [];
 
-    let _tracks = [];
+        if (tracks.length === 0) {
+            _tracks = await searchOnServer(data);
+        } else
+            _tracks = tracks;
 
-    if (tracks.length === 0) {
-        _tracks = await searchOnServer(data);
-    } else
-        _tracks = tracks;
+        const {playerReducer} = store.getState();
 
-    const {playerReducer} = store.getState();
-
-    return dispatch => {
         dispatch({
             type: SET_TRACKS,
             payload: {
                 ...playerReducer,
                 previous: {},
-                current: _tracks,
+                current: _tracks[0] || {},
                 next: _tracks[1] || {}
             }
         })
@@ -56,17 +55,20 @@ const findLocal = ({id, type}) => {
     switch (type) {
         case ALBUM_TYPE:
             items = store.getState().albumsReducer;
+            break;
         // case ARTIST_TYPE:
         //     items = store.getState().artistsReducer;
         case PLAYLIST_TYPE:
             items = store.getState().playlistsReducer;
+            break;
         case TRACK_TYPE:
             items = store.getState().tracksReducer;
+            break;
         default:
             items = [];
     }
 
-    const itemIndex = items.findIndex(item => item.id = id);
+    const itemIndex = items.findIndex(item => item.id === id);
 
     if (itemIndex !== -1)
         return items[itemIndex]

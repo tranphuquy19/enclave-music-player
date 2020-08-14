@@ -28,7 +28,7 @@ export const playerReducer = (state = playerInitState, {type, payload}) => {
         case REMOVE_TRACK:
             return state;
         case SET_TRACKS:
-            return state;
+            return {...payload};
         case SHUFFLE_TRACKS:
             return state;
         default:

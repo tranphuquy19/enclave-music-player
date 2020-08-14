@@ -4,13 +4,20 @@
  */
 
 import {combineReducers} from "redux";
-import {userReducer, tracksReducer, albumsReducer, artistsReducer} from './_index';
+import {
+    albumsReducer,
+    artistsReducer,
+    playerReducer,
+    tracksReducer,
+    userReducer,
+} from './_index';
 
 const masterReducer = combineReducers({
     userReducer,
     artistsReducer,
     tracksReducer,
-    albumsReducer
+    albumsReducer,
+    playerReducer
 });
 
 export default masterReducer;

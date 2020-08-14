@@ -2,10 +2,6 @@ import React, {Component} from "react";
 import resizeImage from "../../shared/ResizeImage";
 
 export class ArtistItemComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {name, pictureMedium} = this.props;
         return <li className="artist_item">

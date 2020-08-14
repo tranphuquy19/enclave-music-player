@@ -3,10 +3,6 @@ import {connect} from "react-redux";
 import {AlbumItemComponent} from "./AlbumItemComponent";
 
 class AlbumListComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {albums} = this.props;
         const listAlbums = albums.map((album, index) => <AlbumItemComponent {...album} key={index}/>)
