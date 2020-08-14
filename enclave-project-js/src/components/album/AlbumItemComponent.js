@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import resizeImage from "../../shared/ResizeImage";
+import AlbumBtnPlayTracks from "./AlbumBtnPlayTracks";
 
 export class AlbumItemComponent extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ export class AlbumItemComponent extends Component {
             <img
                 src={resizeImage(coverMedium)}
                 alt={title} className="album_img"/>
-            <div className="album_play_icon"><i className="fas fa-play"></i></div>
+            <AlbumBtnPlayTracks/>
             <p className="album_title">{title}</p>
         </li>;
     }

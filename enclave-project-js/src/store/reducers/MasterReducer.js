@@ -4,7 +4,7 @@
  */
 
 import {combineReducers} from "redux";
-import {userReducer, tracksReducer, albumsReducer, artistsReducer} from './index';
+import {userReducer, tracksReducer, albumsReducer, artistsReducer} from './_index';
 
 const masterReducer = combineReducers({
     userReducer,

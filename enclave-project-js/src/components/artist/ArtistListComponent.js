@@ -18,7 +18,7 @@ class ArtistListComponent extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         artists: state.artistsReducer,
     };
