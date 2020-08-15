@@ -13,9 +13,9 @@ import {
     TRACK_TYPE
 } from "../../shared/Types";
 import {store} from "../index";
-import {fetchArtistById, fetchAlbumById} from '../../requires/_index'
-import {fetchPlaylistById} from "../../requires/PlaylistQueries";
-import {fetchTrackById} from "../../requires/TrackQueries";
+import {fetchArtistById, fetchAlbumById} from '../../queries/_index'
+import {fetchPlaylistById} from "../../queries/PlaylistQueries";
+import {fetchTrackById} from "../../queries/TrackQueries";
 
 const setTracks = (data) => {
     return async dispatch => {

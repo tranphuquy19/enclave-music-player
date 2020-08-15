@@ -18,8 +18,4 @@ const loadAlbumsSeed = () => {
     }
 }
 
-const fetchAlbumById = (id) => {
-
-}
-
 export {loadAlbumsSeed};
