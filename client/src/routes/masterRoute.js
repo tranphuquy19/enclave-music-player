@@ -1,5 +1,5 @@
 import React from 'react'
-import Login from '../components/features/Login/Login'
+import LoginPage from '../components/features/Login/LoginPage'
 import HomePage from '../pages/HomePage'
 import AlbumPages from '../pages/AlbumPages'
 import TrackListPage from '../pages/TrackListPage'
@@ -14,7 +14,7 @@ export const masterRoutes = [
     {
         path: '/login',
         exact: true,
-        main: () => <Login/>
+        main: () => <LoginPage/>
     },
     {
         path: '/tracklist',

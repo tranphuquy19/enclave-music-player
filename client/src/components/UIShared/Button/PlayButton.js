@@ -22,7 +22,6 @@ class PlayButton extends Component {
     // const toggle = () => setPlaying(!playing);
 
     playPreview() {
-        console.log(this.state);
         let audioElement = document.getElementById("my-audio");
         if (!this.state.isPlaying) {
             this.setState({ isPlaying: true });
@@ -32,8 +31,6 @@ class PlayButton extends Component {
             audioElement.load();
             audioElement.play();
             audioElement.onended = (event) => {
-                console.log('Video stopped either because 1) it was over, ' +
-                    'or 2) no further data is available.');
                 this.setState({
                     isPlaying: false
                 })

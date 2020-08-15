@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-
-import axios from 'axios';
 import CardTrack from '../components/features/CardTrack/CardTrack';
 import Loading from '../components/UIShared/loading/Loading';
 import callApi from '../utils/ApiCaller';
+import { connect } from 'react-redux';
+import {actFetchTracksRequest} from '../actions/TracksAction'
 
 class TrackList extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             tracks: []
         }
@@ -15,6 +16,7 @@ class TrackList extends Component {
     }
     async componentDidMount() {
         let { data } = await callApi('playlist/789794642', 'GET', null);
+        // this.props.fetAllTracks(data.tracks)
         this.setState({
             tracks: data.tracks
         })
@@ -59,5 +61,17 @@ class TrackList extends Component {
     }
 
 }
+const mapStateToProps = state => {
+    return{
+        tracks : state.tracks
+    }
+}
+// const mapDispatchToProps = (dispatch, props) => {
+//     return{
+//         fetAllTracks: () =>{
+//             dispatch(actFetchTracksRequest())
+//         }
+//     }
+// }
 
-export default TrackList;
+export default connect(mapStateToProps)(TrackList);
