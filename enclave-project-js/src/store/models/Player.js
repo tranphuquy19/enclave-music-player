@@ -3,13 +3,18 @@
  * @author: tranphuquy19@gmail.com
  */
 
+import Track from "./Track";
+
 class Player {
-    previous = {};
-    current = {};
-    next = {};
+    current = Track;
     currentTime = 0;
-    volume = 1;
+    isPlaying = false;
     loop = false;
+    next = Track;
+    playingIndex = 0;
+    previous = Track;
+    queue = [];
+    volume = 1;
 }
 
 export default new Player();

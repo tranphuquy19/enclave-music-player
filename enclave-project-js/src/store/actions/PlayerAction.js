@@ -3,11 +3,19 @@
  * @author: tranphuquy19@gmail.com
  */
 
-import {ALBUM_TYPE, ARTIST_TYPE, PLAYLIST_TYPE, SET_TRACKS, TRACK_TYPE} from "../../shared/Types";
+import {
+    ALBUM_TYPE,
+    ARTIST_TYPE,
+    NEXT_TRACK,
+    PLAYLIST_TYPE,
+    PREVIOUS_TRACK,
+    SET_TRACKS, TOGGLE_PLAYING,
+    TRACK_TYPE
+} from "../../shared/Types";
 import {store} from "../index";
-import {fetchArtistById, fetchAlbumById} from '../../requires/_index'
-import {fetchPlaylistById} from "../../requires/PlaylistQueries";
-import {fetchTrackById} from "../../requires/TrackQueries";
+import {fetchArtistById, fetchAlbumById} from '../../queries/_index'
+import {fetchPlaylistById} from "../../queries/PlaylistQueries";
+import {fetchTrackById} from "../../queries/TrackQueries";
 
 const setTracks = (data) => {
     return async dispatch => {
@@ -20,17 +28,78 @@ const setTracks = (data) => {
             _tracks = tracks;
 
         const {playerReducer} = store.getState();
+        const playingIndex = 0;
 
         dispatch({
             type: SET_TRACKS,
             payload: {
                 ...playerReducer,
-                previous: {},
-                current: _tracks[0] || {},
-                next: _tracks[1] || {}
+                isPlaying: true,
+                queue: _tracks,
+                playingIndex: 0,
+                previous: _tracks[playingIndex - 1] || {},
+                current: _tracks[playingIndex] || {},
+                next: _tracks[playingIndex + 1] || {}
+            }
+        });
+    }
+}
+
+const nextTrack = () => {
+    return dispatch => {
+        dispatch({
+            type: NEXT_TRACK,
+            payload: jumpToTrack()
+        })
+    }
+}
+
+const previousTrack = () => {
+    return dispatch => {
+        dispatch({
+            type: PREVIOUS_TRACK,
+            payload: jumpToTrack(-1)
+        })
+    }
+}
+
+const togglePlaying = () => {
+    return dispatch => {
+        const {playerReducer} = store.getState();
+        const {isPlaying} = playerReducer;
+        dispatch({
+            type: TOGGLE_PLAYING,
+            payload: {
+                ...playerReducer,
+                isPlaying: !isPlaying
             }
         })
     }
+}
+
+const jumpToTrack = (step = 1) => {
+    const {playerReducer} = store.getState();
+    const {playingIndex, queue} = playerReducer;
+    const jumpIndex = playingIndex + step
+    const isContinuePlaying = queue[jumpIndex] ? true : false;
+    let payload = {};
+
+    if (isContinuePlaying) {
+        payload = {
+            ...playerReducer,
+            isPlaying: isContinuePlaying,
+            playingIndex: jumpIndex,
+            previous: queue[jumpIndex - 1] || {},
+            current: queue[jumpIndex] || {},
+            next: queue[jumpIndex + 1] || {}
+        }
+    } else {
+        payload = {
+            ...playerReducer,
+            isPlaying: isContinuePlaying
+        }
+    }
+    return payload;
 }
 
 const searchOnServer = async ({id, type}) => {
@@ -75,4 +144,4 @@ const findLocal = ({id, type}) => {
     else return {};
 }
 
-export {setTracks}
+export {setTracks, nextTrack, previousTrack, togglePlaying}

@@ -2237,7 +2237,7 @@
 
         return onTree(node, callback);
       } else {
-        return picked.reject('Operation requires a DOM of some kind.');
+        return picked.reject('Operation queries a DOM of some kind.');
       }
     },
     css: css,

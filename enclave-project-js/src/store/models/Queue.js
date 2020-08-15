@@ -5,7 +5,6 @@
 
 class Queue {
     isVisible = false;
-    tracks = [];
 }
 
 export default new Queue();
