@@ -4,7 +4,7 @@
  */
 import React, {Component} from 'react';
 import PlayerBtnPreviousTrack from "./PlayerBtnPreviousTrack";
-import {PlayerBtnPlayTrack} from "./PlayerBtnPlayTrack";
+import PlayerBtnPlayTrack from "./PlayerBtnPlayTrack";
 import PlayerBtnNextTrack from "./PlayerBtnNextTrack";
 import {PlayerBtnShuffleTracks} from "./PlayerBtnShuffleTracks";
 import {PlayerBtnLoopTracks} from "./PlayerBtnLoopTracks";
@@ -19,7 +19,7 @@ class PlayerComponent extends Component {
             <div id="player">
                 <div id="player_ctr_btns">
                     <PlayerBtnPreviousTrack/>
-                    <PlayerBtnPlayTrack/>
+                    <PlayerBtnPlayTrack player={player}/>
                     <PlayerBtnNextTrack/>
                     <PlayerBtnShuffleTracks/>
                     <PlayerBtnLoopTracks/>

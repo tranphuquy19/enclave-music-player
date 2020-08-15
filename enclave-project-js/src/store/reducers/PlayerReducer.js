@@ -32,7 +32,7 @@ export const playerReducer = (state = playerInitState, {type, payload}) => {
         case SHUFFLE_TRACKS:
             return state;
         case TOGGLE_PLAYING:
-            return state;
+            return {...payload};
         default:
             return state;
     }
