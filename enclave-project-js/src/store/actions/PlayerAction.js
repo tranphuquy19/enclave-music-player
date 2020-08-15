@@ -28,7 +28,7 @@ const setTracks = (data) => {
             _tracks = tracks;
 
         const {playerReducer} = store.getState();
-        const {playingIndex} = playerReducer;
+        const playingIndex = 0;
 
         dispatch({
             type: SET_TRACKS,
