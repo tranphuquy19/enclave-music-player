@@ -6,17 +6,39 @@ import React, {Component} from 'react';
 import Slider from "rc-slider";
 import {connect} from "react-redux";
 import ReactPlayer from "react-player";
+import {nextTrack} from "../../store/actions/PlayerAction";
 
 class PlayerTimer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 0
+            value: 0,
+            duration: 0
         }
     }
 
+    formatTime = (timeTemp) => {
+        const m = Math.floor(timeTemp / 60);
+        const s = Math.floor(timeTemp % 60);
+
+        return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    }
+
     onProgress = (state) => {
-        console.log(state);
+        const {playedSeconds} = state;
+        this.setState({
+            value: Math.floor(playedSeconds)
+        });
+    }
+
+    onDuration = (state) => {
+        this.setState({
+            duration: Math.floor(state)
+        });
+    }
+
+    onEnded = () => {
+        this.props._nextTrack();
     }
 
     onSliderChange = (value) => {
@@ -31,19 +53,28 @@ class PlayerTimer extends Component {
     };
 
     render() {
-        const {isPlaying, current} = this.props.player;
+        const {duration, value} = this.state;
+        const {isPlaying, current, loop} = this.props.player;
         const url = current.preview || null;
 
         return (
             <>
-                <ReactPlayer url={url} playing={isPlaying} onProgress={this.onProgress} hidden/>
+                <ReactPlayer url={url}
+                             playing={isPlaying}
+                             loop={loop}
+                             onProgress={this.onProgress}
+                             onDuration={this.onDuration}
+                             onEnded={this.onEnded}
+                             hidden/>
                 <div id="player_timer">
-                    <p className="player_timer_text">0:00</p>
+                    <p className="player_timer_text">
+                        {this.formatTime(value)}
+                    </p>
                     <div className="player_slider">
                         <Slider
                             min={0}
-                            max={250}
-                            value={this.state.value}
+                            max={duration}
+                            value={value}
                             onChange={this.onSliderChange}
                             railStyle={{
                                 height: 2
@@ -61,7 +92,7 @@ class PlayerTimer extends Component {
                             }}
                         />
                     </div>
-                    <p className="player_timer_text">0:00</p>
+                    <p className="player_timer_text">{this.formatTime(duration)}</p>
                     <button className="player_btn volume_btn">
                         <i className="far fa-volume"></i>
                     </button>
@@ -71,10 +102,18 @@ class PlayerTimer extends Component {
     }
 }
 
-const mapStateToProps = state => {
+// const mapStateToProps = state => {
+//     return {
+//         player: state.playerReducer
+//     }
+// }
+
+const mapDispatchToProps = (dispatch, props) => {
     return {
-        player: state.playerReducer
+        _nextTrack: () => {
+            dispatch(nextTrack());
+        }
     }
 }
 
-export default connect(mapStateToProps, null)(PlayerTimer);
+export default connect(null, mapDispatchToProps)(PlayerTimer);

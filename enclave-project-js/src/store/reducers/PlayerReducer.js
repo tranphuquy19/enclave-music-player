@@ -10,7 +10,7 @@ import {
     NEXT_TRACK,
     PREVIOUS_TRACK,
     REMOVE_TRACK, SET_TRACKS,
-    SHUFFLE_TRACKS
+    SHUFFLE_TRACKS, TOGGLE_PLAYING
 } from "../../shared/Types";
 
 const playerInitState = Player;
@@ -22,14 +22,16 @@ export const playerReducer = (state = playerInitState, {type, payload}) => {
         case CHANGE_VOLUME:
             return state;
         case NEXT_TRACK:
-            return state;
+            return {...payload};
         case PREVIOUS_TRACK:
-            return state;
+            return {...payload};
         case REMOVE_TRACK:
             return state;
         case SET_TRACKS:
             return {...payload};
         case SHUFFLE_TRACKS:
+            return state;
+        case TOGGLE_PLAYING:
             return state;
         default:
             return state;
