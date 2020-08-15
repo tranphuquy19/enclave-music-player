@@ -45,11 +45,8 @@ class PlayerTimer extends Component {
         this.setState(
             {
                 value
-            },
-            () => {
-                console.log(this.state.value);
-            }
-        );
+            });
+        this.reactPlayer.seekTo(value);
     };
 
     render() {
@@ -59,13 +56,17 @@ class PlayerTimer extends Component {
 
         return (
             <>
-                <ReactPlayer url={url}
-                             playing={isPlaying}
-                             loop={loop}
-                             onProgress={this.onProgress}
-                             onDuration={this.onDuration}
-                             onEnded={this.onEnded}
-                             hidden/>
+                <ReactPlayer
+                    ref={reactPlayer => {
+                        this.reactPlayer = reactPlayer
+                    }}
+                    url={url}
+                    playing={isPlaying}
+                    loop={loop}
+                    onProgress={this.onProgress}
+                    onDuration={this.onDuration}
+                    onEnded={this.onEnded}
+                    hidden/>
                 <div id="player_timer">
                     <p className="player_timer_text">
                         {this.formatTime(value)}
