@@ -138,7 +138,9 @@ const findLocal = ({id, type}) => {
             items = store.getState().playlistsReducer;
             break;
         case TRACK_TYPE:
-            items = store.getState().tracksReducer;
+            const items1 = store.getState().albumsReducer.reduce((tracks, album) => [...tracks, ...album.tracks], []);
+            const items2 = store.getState().playlistsReducer.reduce((tracks, playlist) => [...tracks, ...playlist.tracks], []);
+            items = [...items1, ...items2];
             break;
         default:
             items = [];
@@ -146,9 +148,15 @@ const findLocal = ({id, type}) => {
 
     const itemIndex = items.findIndex(item => item.id === id);
 
-    if (itemIndex !== -1)
-        return items[itemIndex]
-    else return {};
+    if (type === TRACK_TYPE) {
+        return {
+            ...items[itemIndex],
+            tracks: [items[itemIndex]]}
+    } else {
+        if (itemIndex !== -1)
+            return items[itemIndex]
+        else return {};
+    }
 }
 
 export {setTracks, nextTrack, previousTrack, togglePlaying}

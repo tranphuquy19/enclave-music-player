@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {PlaylistTrackItemComponent} from "./PlaylistTrackItemComponent";
+import PlaylistTrackItemComponent from "./PlaylistTrackItemComponent";
 import resizeImage from "../../shared/ResizeImage";
 import {setTracks, togglePlaying} from "../../store/actions/PlayerAction";
 import {connect} from "react-redux";
@@ -14,10 +14,10 @@ class PlaylistItemComponent extends Component {
     }
 
     render() {
-        const {title, pictureMedium, tracks, isItemPlaying} = this.props;
+        const {title, pictureMedium, tracks, isItemPlaying, player} = this.props;
 
         const listTracks = tracks.map((track, index) =>
-            <PlaylistTrackItemComponent {...track} key={index}/>
+            <PlaylistTrackItemComponent {...track} key={index} player={player}/>
         )
 
         return (

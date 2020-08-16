@@ -20,7 +20,7 @@ class Playlist {
     tracklist='';
     creationDate= '';
     creator='';
-    type= '';
+    type= 'playlist';
     tracks= [];
 }
 
