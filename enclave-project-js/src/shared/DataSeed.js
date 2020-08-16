@@ -2439,20 +2439,6 @@ const dataSeeds = {
             "type": "artist"
         },
         {
-            "id": 2352221,
-            "name": "Tuan Hung",
-            "link": "https://www.deezer.com/artist/2352221",
-            "share": "https://www.deezer.com/artist/2352221?utm_source=deezer&utm_content=artist-2352221&utm_term=0_1597422314&utm_medium=web",
-            "picture": "https://api.deezer.com/artist/2352221/image",
-            "pictureSmall": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/56x56-000000-80-0-0.jpg",
-            "pictureMedium": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/250x250-000000-80-0-0.jpg",
-            "pictureBig": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/500x500-000000-80-0-0.jpg",
-            "pictureXl": "https://cdns-images.dzcdn.net/images/artist/94aa9387f841db3c8953a87e06f8acd0/1000x1000-000000-80-0-0.jpg",
-            "radio": false,
-            "tracklist": "https://api.deezer.com/artist/2352221/top?limit=50",
-            "type": "artist"
-        },
-        {
             "id": 12246,
             "name": "Taylor Swift",
             "link": "https://www.deezer.com/artist/12246",
