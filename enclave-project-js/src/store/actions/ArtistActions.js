@@ -10,7 +10,7 @@ const loadArtistsSeed = () => {
     const {artists, nbMaxArtists} = DataSeed;
     const _artists = artists.slice(0, nbMaxArtists);
 
-    return async dispatch => {
+    return dispatch => {
         dispatch({
             type: LOAD_ARTISTS,
             payload: _artists

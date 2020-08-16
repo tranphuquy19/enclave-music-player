@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 import './App.css';
 import {HeaderComponent} from "./components/header/HeaderComponent_";
 import {SidebarComponent} from "./components/sidebar/SidebarComponent_";
 import {AlbumComponent} from "./components/album/_AlbumComponent";
-import {PlaylistComponent} from "./components/playlist/PlaylistComponent_";
+import PlaylistComponent from "./components/playlist/PlaylistComponent_";
 import {ArtistComponent} from "./components/artist/_ArtistComponent";
 import {TrackComponent} from "./components/track/TrackComponent_";
 import PlayerComponent from "./components/player/_PlayerComponent";
 import {connect} from "react-redux";
 import {loadAlbumsSeed} from "./store/actions/AlbumActions";
 import {loadArtistsSeed} from "./store/actions/ArtistActions";
+import {loadPlaylistsSeed} from "./store/actions/PlaylistActions";
 
 class App extends Component {
     constructor(props) {
@@ -22,6 +22,7 @@ class App extends Component {
     componentDidMount() {
         this.props._loadAlbumsSeed();
         this.props._loadArtistsSeed();
+        this.props._loadPlaylistsSeed();
     }
 
     render() {
@@ -51,6 +52,10 @@ const mapDispatchToProps = (dispatch, props) => {
 
         _loadArtistsSeed: () => {
             dispatch(loadArtistsSeed());
+        },
+
+        _loadPlaylistsSeed: () => {
+            dispatch(loadPlaylistsSeed());
         }
     }
 }

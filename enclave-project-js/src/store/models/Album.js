@@ -17,7 +17,7 @@ class Album {
     releaseDate = '';
     tracklist = '';
     tracks = [];
-    type = '';
+    type = 'album';
 }
 
 export default new Album();

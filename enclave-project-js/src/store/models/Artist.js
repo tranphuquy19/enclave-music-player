@@ -15,7 +15,7 @@ class Artist {
     pictureXl = '';
     radio = '';
     tracklist = '';
-    type = '';
+    type = 'artist';
 }
 
 export default new Artist();

@@ -16,6 +16,7 @@ class Track {
     contributors = [];
     artist = {};
     album = '';
+    type='track';
     upVoteLink = '';
     downVoteLink = '';
     upVotes = [];

@@ -10,7 +10,7 @@ const loadAlbumsSeed = () => {
     const {albums, nbMaxAlbums} = DataSeed;
     const _albums = albums.slice(0, nbMaxAlbums);
 
-    return async dispatch => {
+    return dispatch => {
         dispatch({
             type: LOAD_ALBUMS,
             payload: _albums
