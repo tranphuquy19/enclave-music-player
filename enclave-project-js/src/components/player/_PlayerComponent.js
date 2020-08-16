@@ -46,7 +46,7 @@ class PlayerComponent extends Component {
         return (
             <>
                 <Helmet defer={false}>
-                    <title>{titleShort ? `${titleShort} - Music Player` : `Music Player`}</title>
+                    <title>{titleShort ? `${titleShort} - ${artist.name} | Music Player` : `Music Player`}</title>
                     <link rel="icon" type="image/jpg" href={artistCached.pictureSmall || ''}/>
                 </Helmet>
                 <div id="player">

@@ -17,6 +17,10 @@ class PlayerTimer extends Component {
         }
     }
 
+     renderProgressBar = () => {
+
+    }
+
     formatTime = (timeTemp) => {
         const m = Math.floor(timeTemp / 60);
         const s = Math.floor(timeTemp % 60);
@@ -26,9 +30,23 @@ class PlayerTimer extends Component {
 
     onProgress = (state) => {
         const {playedSeconds} = state;
+        const {duration} = this.state;
         this.setState({
             value: Math.floor(playedSeconds)
         });
+
+        let s = '',
+            l = 15,
+            p = Math.floor(playedSeconds / duration * (l-1)),
+            i;
+
+        for (i = 0; i < l; i ++) {
+            if (i == p) s +='◯';
+            else if (i < p) s += '─';
+            else s += '┄';
+        }
+
+        window.location.hash = '╭'+s+'╮'+ this.formatTime(playedSeconds)+'╱'+ this.formatTime(duration);
     }
 
     onDuration = (state) => {
