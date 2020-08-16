@@ -41,7 +41,6 @@ class PlayerTimer extends Component {
         const {current} = this.props.player;
         const {titleShort, artist} = current;
         const trackHashName = current ? this.normalize(`\@${artist.name}\~${titleShort}`): '';
-        console.log(trackHashName);
         const e = ['🌑', '🌘', '🌗', '🌖', '🌕'];
         this.setState({
             value: Math.floor(playedSeconds)
