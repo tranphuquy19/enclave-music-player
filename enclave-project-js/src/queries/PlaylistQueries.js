@@ -7,7 +7,7 @@ import Client from "../shared/Client";
 
 const fetchPlaylistById = async (id) => {
     try {
-        const {data} = Client(`playlist/${id}`, 'GET', null);
+        const {data} = await Client(`playlist/${id}`, 'GET', null);
         return data;
     } catch (e) {
         console.log(e)

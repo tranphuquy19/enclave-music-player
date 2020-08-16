@@ -11,22 +11,56 @@ import {PlayerBtnLoopTracks} from "./PlayerBtnLoopTracks";
 import PlayerTimer from "./PlayerTimer";
 import {PlayerTrackInfo} from "./PlayerTrackInfo";
 import {connect} from "react-redux";
+import {Helmet} from "react-helmet";
+import {fetchArtistById} from "../../queries/ArtistQueries";
 
 class PlayerComponent extends Component {
+    state = {
+        artistCached: {
+            id: '',
+            pictureSmall: ''
+        }
+    };
+
+    handleTrackChange(artistId) {
+        const {artistCached} = this.state;
+        if (!artistId || artistId === artistCached.id) return;
+        fetchArtistById(artistId).then(result => {
+            const {pictureSmall} = result;
+            this.setState({
+                artistCached: {
+                    id: artistId,
+                    pictureSmall
+                }
+            });
+        })
+    }
+
     render() {
         const {player} = this.props;
+        const {artistCached} = this.state;
+        const {current} = player;
+        const {titleShort, artist} = current;
+        const {id} = artist;
+        this.handleTrackChange(id);
         return (
-            <div id="player">
-                <div id="player_ctr_btns">
-                    <PlayerBtnPreviousTrack/>
-                    <PlayerBtnPlayTrack player={player}/>
-                    <PlayerBtnNextTrack/>
-                    <PlayerBtnShuffleTracks/>
-                    <PlayerBtnLoopTracks/>
+            <>
+                <Helmet defer={false}>
+                    <title>{titleShort ? `${titleShort} - Music Player` : `Music Player`}</title>
+                    <link rel="icon" type="image/jpg" href={artistCached.pictureSmall || ''}/>
+                </Helmet>
+                <div id="player">
+                    <div id="player_ctr_btns">
+                        <PlayerBtnPreviousTrack/>
+                        <PlayerBtnPlayTrack player={player}/>
+                        <PlayerBtnNextTrack/>
+                        <PlayerBtnShuffleTracks/>
+                        <PlayerBtnLoopTracks/>
+                    </div>
+                    <PlayerTimer player={player}/>
+                    <PlayerTrackInfo/>
                 </div>
-                <PlayerTimer player={player}/>
-                <PlayerTrackInfo/>
-            </div>
+            </>
         );
     }
 }

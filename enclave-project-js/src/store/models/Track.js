@@ -14,7 +14,7 @@ class Track {
     releaseDate = '';
     preview = '';
     contributors = [];
-    artist = '';
+    artist = {};
     album = '';
     upVoteLink = '';
     downVoteLink = '';

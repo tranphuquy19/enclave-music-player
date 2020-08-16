@@ -7,7 +7,7 @@ import Client from "../shared/Client";
 
 const fetchAlbumById = async (id) => {
     try {
-        const {data} = Client(`album/${id}`, 'GET', null);
+        const {data} = await Client(`album/${id}`, 'GET', null);
         return data;
     } catch (e) {
         console.log(e)
