@@ -9,9 +9,10 @@ class AlbumBtnPlayTracks extends Component {
     }
 
     render() {
+        const {isItemPlaying} = this.props;
         return (
             <div className="album_play_icon" onClick={this.onClick}>
-                <i className="fas fa-play"></i>
+                <i className={isItemPlaying ? 'fas fa-spinner fa-spin' :  'fas fa-play'}></i>
             </div>
         );
     }

@@ -6,6 +6,7 @@
 import Track from "./Track";
 
 class Player {
+    belongTo = {id: null, type: ''};
     current = Track;
     currentTime = 0;
     isPlaying = false;

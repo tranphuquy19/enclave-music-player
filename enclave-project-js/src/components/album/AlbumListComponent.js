@@ -3,9 +3,21 @@ import {connect} from "react-redux";
 import {AlbumItemComponent} from "./AlbumItemComponent";
 
 class AlbumListComponent extends Component {
+    checkItemPlaying = ({id}) => {
+        const {player} = this.props;
+        const {belongTo, isPlaying} = player;
+        return belongTo.type === 'album' && belongTo.id === id && isPlaying;
+    }
+
     render() {
         const {albums} = this.props;
-        const listAlbums = albums.map((album, index) => <AlbumItemComponent {...album} key={index}/>)
+
+        const listAlbums = albums.map((album, index) =>
+            <AlbumItemComponent
+                {...album}
+                key={index}
+                isItemPlaying={this.checkItemPlaying(album)}/>)
+
         return (
             <ul className="album_list">
                 {listAlbums}
@@ -16,7 +28,8 @@ class AlbumListComponent extends Component {
 
 const mapStateToProps = state => {
     return {
-        albums: state.albumsReducer
+        albums: state.albumsReducer,
+        player: state.playerReducer
     }
 }
 
