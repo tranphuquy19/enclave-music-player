@@ -443,20 +443,20 @@
 
 /* Track */
 .playlist_right::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #ddd;
-    background-color: whitesmoke;
-    border-radius: 5px;
+    /*box-shadow: inset 0 0 5px #ddd;*/
+    /*background-color: whitesmoke;*/
+    /*border-radius: 5px;*/
 }
 
 /* Handle */
 .playlist_right::-webkit-scrollbar-thumb {
-    background: #535353;
+    background: #7b7b7b;
     border-radius: 5px;
 }
 
 /* Handle on hover */
 .playlist_right::-webkit-scrollbar-thumb:hover {
-    background: #616161;
+    background: #acacac;
 }
 
 .playlist_track_item {
