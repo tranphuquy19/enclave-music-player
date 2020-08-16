@@ -4,8 +4,11 @@ import {setTracks, togglePlaying} from "../../store/actions/PlayerAction";
 
 class AlbumBtnPlayTracks extends Component {
     onClick = () => {
-        const {_setTracks, _togglePlaying ,id, type, isItemPlaying} = this.props;
-        isItemPlaying ? _togglePlaying() : _setTracks({id, type});
+        const {player, _togglePlaying, _setTracks, id, type} = this.props;
+        const {belongTo} = player;
+
+        _togglePlaying();
+        if (belongTo.id !== id) _setTracks({id, type});
     }
 
     render() {

@@ -10,6 +10,7 @@ import {
     playerReducer,
     tracksReducer,
     userReducer,
+    playlistsReducer
 } from './_index';
 
 const masterReducer = combineReducers({
@@ -17,7 +18,8 @@ const masterReducer = combineReducers({
     artistsReducer,
     tracksReducer,
     albumsReducer,
-    playerReducer
+    playerReducer,
+    playlistsReducer
 });
 
 export default masterReducer;

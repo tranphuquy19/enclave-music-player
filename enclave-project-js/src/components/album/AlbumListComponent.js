@@ -10,12 +10,13 @@ class AlbumListComponent extends Component {
     }
 
     render() {
-        const {albums} = this.props;
+        const {albums, player} = this.props;
 
         const listAlbums = albums.map((album, index) =>
             <AlbumItemComponent
                 {...album}
                 key={index}
+                player={player}
                 isItemPlaying={this.checkItemPlaying(album)}/>)
 
         return (

@@ -7,3 +7,4 @@ export * from './ArtistsReducer';
 export * from './PlayerReducer';
 export * from './TracksReducer';
 export * from './UserReducer';
+export * from './PlaylistsReducer';

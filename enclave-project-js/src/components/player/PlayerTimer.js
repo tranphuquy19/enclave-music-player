@@ -139,12 +139,6 @@ class PlayerTimer extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         player: state.playerReducer
-//     }
-// }
-
 const mapDispatchToProps = (dispatch, props) => {
     return {
         _nextTrack: () => {

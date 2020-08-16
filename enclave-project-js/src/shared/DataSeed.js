@@ -2481,7 +2481,7 @@ const dataSeeds = {
             "type": "artist"
         }
     ],
-    playlist: [
+    playlists: [
         {
             "id": 4096400722,
             "title": "Top K-Pop",
