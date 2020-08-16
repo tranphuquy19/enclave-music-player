@@ -290,7 +290,7 @@
 }
 
 .album_item {
-    width: 15.375rem;
+    /*width: 15.375rem;*/
     position: relative;
     padding-bottom: 10px;
     box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.5);
@@ -323,7 +323,7 @@
 }
 
 .album_item .album_title {
-    width: 15.375rem;
+    width: 12.8vw;
     overflow : hidden;
     text-overflow: ellipsis;
     white-space:nowrap;
@@ -443,20 +443,20 @@
 
 /* Track */
 .playlist_right::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #ddd;
-    background-color: whitesmoke;
-    border-radius: 5px;
+    /*box-shadow: inset 0 0 5px #ddd;*/
+    /*background-color: whitesmoke;*/
+    /*border-radius: 5px;*/
 }
 
 /* Handle */
 .playlist_right::-webkit-scrollbar-thumb {
-    background: #535353;
+    background: #7b7b7b;
     border-radius: 5px;
 }
 
 /* Handle on hover */
 .playlist_right::-webkit-scrollbar-thumb:hover {
-    background: #616161;
+    background: #acacac;
 }
 
 .playlist_track_item {

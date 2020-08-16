@@ -19,13 +19,19 @@ import {fetchTrackById} from "../../queries/TrackQueries";
 
 const setTracks = (data) => {
     return async dispatch => {
-        const {tracks} = findLocal(data);
+        const obj = findLocal(data);
+        const {id, tracks, type} = obj;
+        let belongTo;
         let _tracks = [];
 
         if (tracks.length === 0) {
-            _tracks = await searchOnServer(data);
-        } else
+            const {id, tracks, type} = await searchOnServer(data);
             _tracks = tracks;
+            belongTo = {id, type};
+        } else {
+            _tracks = tracks;
+            belongTo = {id, type};
+        }
 
         const {playerReducer} = store.getState();
         const playingIndex = 0;
@@ -39,7 +45,8 @@ const setTracks = (data) => {
                 playingIndex: 0,
                 previous: _tracks[playingIndex - 1] || {},
                 current: _tracks[playingIndex] || {},
-                next: _tracks[playingIndex + 1] || {}
+                next: _tracks[playingIndex + 1] || {},
+                belongTo
             }
         });
     }
@@ -112,7 +119,7 @@ const searchOnServer = async ({id, type}) => {
             return await fetchPlaylistById(id);
         case TRACK_TYPE:
             const track = await fetchTrackById(id);
-            return [track];
+            return {id: track.id, tracks: [track], type: 'track'};
         default:
             return [];
     }

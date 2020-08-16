@@ -7,7 +7,7 @@ import Client from "../shared/Client";
 
 const fetchArtistById = async (id) => {
     try {
-        const {data} = Client(`artist/${id}`, 'GET', null);
+        const {data} = await Client(`artist/${id}`, 'GET', null);
         return data;
     } catch (e) {
         console.log(e)

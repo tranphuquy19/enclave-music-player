@@ -7,7 +7,7 @@ import Client from "../shared/Client";
 
 const fetchTrackById = async (id) => {
     try {
-        const {data} = Client(`track/${id}`, 'GET', null);
+        const {data} = await Client(`track/${id}`, 'GET', null);
         return data;
     } catch (e) {
         console.log(e)

@@ -17,6 +17,10 @@ class PlayerTimer extends Component {
         }
     }
 
+    renderProgressBar = () => {
+
+    }
+
     formatTime = (timeTemp) => {
         const m = Math.floor(timeTemp / 60);
         const s = Math.floor(timeTemp % 60);
@@ -24,11 +28,43 @@ class PlayerTimer extends Component {
         return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
     }
 
+    normalize = (str) => {
+        return str.normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+            .replace(/\s/g, '')
+    }
+
     onProgress = (state) => {
         const {playedSeconds} = state;
+        const {duration} = this.state;
+        const {current} = this.props.player;
+        const {titleShort, artist} = current;
+        const trackHashName = current ? this.normalize(`\@${artist.name}\~${titleShort}`): '';
+        const e = ['🌑', '🌘', '🌗', '🌖', '🌕'];
         this.setState({
             value: Math.floor(playedSeconds)
         });
+
+        let s = '',
+            c = 0,
+            l = 10,
+            p = Math.floor(playedSeconds / duration * ((l * 5) - 1));
+
+        while (p >= 5) {
+            s += e[4];
+            c++;
+            p -= 5;
+        }
+        s += e[p];
+        c++;
+
+        while (c < l) {
+            s += e[0];
+            c++;
+        }
+
+        window.location.hash = s + this.formatTime(playedSeconds) + '╱' + this.formatTime(duration) + trackHashName;
     }
 
     onDuration = (state) => {

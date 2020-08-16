@@ -1,17 +1,18 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {setTracks} from "../../store/actions/PlayerAction";
+import {setTracks, togglePlaying} from "../../store/actions/PlayerAction";
 
 class AlbumBtnPlayTracks extends Component {
     onClick = () => {
-        const {_setTracks, id, type} = this.props;
-        _setTracks({id, type});
+        const {_setTracks, _togglePlaying ,id, type, isItemPlaying} = this.props;
+        isItemPlaying ? _togglePlaying() : _setTracks({id, type});
     }
 
     render() {
+        const {isItemPlaying} = this.props;
         return (
             <div className="album_play_icon" onClick={this.onClick}>
-                <i className="fas fa-play"></i>
+                <i className={isItemPlaying ? 'fas fa-spinner fa-spin' :  'fas fa-play'}></i>
             </div>
         );
     }
@@ -20,7 +21,10 @@ class AlbumBtnPlayTracks extends Component {
 const mapDispatchToProps = (dispatch, props) => {
     return {
         _setTracks: (data) => {
-            dispatch(setTracks(data))
+            dispatch(setTracks(data));
+        },
+        _togglePlaying: () => {
+            dispatch(togglePlaying());
         }
     }
 }
