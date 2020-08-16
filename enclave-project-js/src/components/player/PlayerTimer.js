@@ -28,10 +28,21 @@ class PlayerTimer extends Component {
         return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
     }
 
+    normalize = (str) => {
+        return str.normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+            .replace(/\s/g, '')
+    }
+
     onProgress = (state) => {
         const {playedSeconds} = state;
         const {duration} = this.state;
-        let e = ['🌑', '🌘', '🌗', '🌖', '🌕'];
+        const {current} = this.props.player;
+        const {titleShort, artist} = current;
+        const trackHashName = current ? this.normalize(`\@${artist.name}\~${titleShort}`): '';
+        console.log(trackHashName);
+        const e = ['🌑', '🌘', '🌗', '🌖', '🌕'];
         this.setState({
             value: Math.floor(playedSeconds)
         });
@@ -54,7 +65,7 @@ class PlayerTimer extends Component {
             c++;
         }
 
-        window.location.hash = s + this.formatTime(playedSeconds) + '╱' + this.formatTime(duration);
+        window.location.hash = s + this.formatTime(playedSeconds) + '╱' + this.formatTime(duration) + trackHashName;
     }
 
     onDuration = (state) => {
