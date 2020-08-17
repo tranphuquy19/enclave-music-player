@@ -22,7 +22,7 @@ class Sidebar extends Component {
                     </section>
                     <section className="sidebar_libra">
                         <h4>List Favorite</h4>
-                        <NavLink to="/aaa" className="sidebar_item" activeClassName="activeLink">
+                        <NavLink to="/songs" className="sidebar_item" activeClassName="activeLink">
                             <span>Songs</span>
                         </NavLink>
                     </section>

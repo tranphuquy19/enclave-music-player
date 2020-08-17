@@ -3,7 +3,6 @@ import CardTrack from '../components/features/CardTrack/CardTrack';
 import Loading from '../components/UIShared/loading/Loading';
 import callApi from '../utils/ApiCaller';
 import { connect } from 'react-redux';
-import {actFetchTracksRequest} from '../actions/TracksAction'
 
 class TrackList extends Component {
     constructor(props) {

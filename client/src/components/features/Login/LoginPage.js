@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
-import axios from 'axios';
-import Register from './Register';
+import { NavLink } from 'react-router-dom';
+import { login } from './UserFunctions';
 
 class LoginPage extends Component {
     constructor(props) {
@@ -9,64 +9,57 @@ class LoginPage extends Component {
         this.state = {
             username: "",
             password: "",
-            loginErrors: ""
+            loginErrors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleOnClick = this.handleOnClick.bind(this);
-    }
-    handleOnClick = () => {
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
-
-        signUpButton.addEventListener('click', () => {
-            container.classList.add('right-panel-active');
-        });
-
-        signInButton.addEventListener('click', () => {
-            container.classList.remove('right-panel-active');
-        });
     }
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
-    handleSubmit(event) {
-        const { username, password } = this.state;
-        axios
-            .post(
-                "https://api.doraneko.tk/login",
-                {
-                    user: {
-                        username: username,
-                        password: password,
-                    }
-                },
-
-                { withCredentials: true }
-            )
-
-            .then(response => {
-                console.log("res from login", response);
-                // if (response.data.status === "created") {
-                //     this.props.handleSuccessfulAuth(response.data);
-                // }
-            })
-            .catch(error => {
-                console.log("login error", error);
-            });
-        event.preventDefault();
+    handleSubmit(event){
+        event.preventDefault()
+        const user = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        login(user).then(res => {
+            if(res){
+                this.props.history.push('/')
+            }
+        })
     }
+    // handleSubmit(event) {
+    //     const { username, password } = this.state;
+    //     axios
+    //         .post(
+    //             "https://api.doraneko.tk/login",
+    //             {
+    //                     username: username,
+    //                     password: password,
+    //             },
+    //             // { withCredentials: true }
+    //         )
+    //         .then(response => {
+    //             console.log("res from login", response);
+    //             // if (response.data.status === "created") {
+    //             //     this.props.handleSuccessfulAuth(response.data);
+    //             // }
+    //         })
+    //         .catch(error => {
+    //             console.log("login error", error);
+    //         });
+    //     event.preventDefault();
+    // }
     render() {
         return (
             <>
                 <div className="container" id="container">
-                    <Register />
                     <div className="form-container sign-in-container">
                         {/* Sign In form code goes here  */}
-                        <form action="#">
+                        <form noValidate onSubmit={this.handleSubmit}>
                             <h1>Sign in</h1>
                             <input type="text"
                                 name="username"
@@ -81,23 +74,16 @@ class LoginPage extends Component {
                                 onChange={this.handleChange}
                                 required />
 
-                            <button type="submit">Sign In</button>
+                            <button className="button" type="submit">Log in</button>
                         </form>
                     </div>
                     <div className="overlay-container">
                         {/* The overlay code goes here */}
                         <div className="overlay">
-                            <div className="overlay-panel overlay-left">
-                                <h1>Welcome Back!</h1>
-                                <p>
-                                    To keep connected with us please login with your personal info
-                                </p>
-                                <button className="ghost" id="signIn" onClick={this.handleOnClick}>Sign In</button>
-                            </div>
                             <div className="overlay-panel overlay-right">
                                 <h1>Hello, Friend!</h1>
                                 <p>Enter your personal details and start journey with us</p>
-                                <button className="ghost" id="signUp" onClick={this.handleOnClick}>Sign Up</button>
+                                <NavLink to="/signup" className="ghost button" id="signUp" >Sign Up</NavLink>
                             </div>
                         </div>
                     </div>

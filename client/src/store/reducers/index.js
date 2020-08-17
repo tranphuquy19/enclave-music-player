@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import tracks from './TrackReducers';
+import tracks from './TracksReducer';
 
 const appReducers = combineReducers({
     tracks

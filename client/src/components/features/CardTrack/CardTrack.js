@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faPlus } from '@fortawesome/free-solid-svg-icons'
 import './CardTrack.css';
 import PlayButton from '../../UIShared/Button/PlayButton';
-import convertDurationTrack from '../convertDurationTrack';
+import convertDurationTrack from '../../UIShared/convertDurationTrack';
 
 const CardTrack = (props) => {
     // console.log(props);
@@ -33,8 +33,8 @@ const CardTrack = (props) => {
                                 </button>
                                 <button className="track-icon track-icon-down">
                                     <FontAwesomeIcon
-                                        title="Download"
-                                        icon={faDownload}/>
+                                        title="Add Playlist"
+                                        icon={faPlus}/>
                                 </button>
                             </div>
                         </div>

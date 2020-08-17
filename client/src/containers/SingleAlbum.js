@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PlayButton from '../components/UIShared/Button/PlayButton';
-import convertDurationTrack from '../components/features/convertDurationTrack';
+import convertDurationTrack from '../components/UIShared/convertDurationTrack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
