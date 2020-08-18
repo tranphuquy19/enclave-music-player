@@ -2,7 +2,9 @@ import axios from 'axios'
 
 export const register = newUser => {
     return axios
-    .post('https://api.doraneko.tk/register', newUser)
+    .post('https://api.doraneko.tk/register', newUser,{
+        headers: {'Content-Type': 'application/json'}
+    })
     .then(res =>{
         console.log(res);
     })
@@ -15,6 +17,8 @@ export const login = user => {
     .post('https://api.doraneko.tk/login', {
         username: user.username,
         password: user.password
+    },{
+        headers: {'Content-Type': 'application/json'}
     })
     .then(res =>{
         localStorage.setItem('usertoken', res.data.token)

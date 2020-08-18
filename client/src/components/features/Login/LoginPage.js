@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { login } from './UserFunctions';
 
 class LoginPage extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             username: "",
             password: "",
