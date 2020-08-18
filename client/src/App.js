@@ -1,4 +1,5 @@
 import './App.css';
+import 'rc-slider/assets/index.css';
 import routerRendering from './components/commons/routerRendering';
 import { masterRoutes } from './routes/masterRoute';
 import { BrowserRouter } from 'react-router-dom';
