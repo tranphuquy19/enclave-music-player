@@ -4,37 +4,34 @@ import Loading from '../components/UIShared/loading/Loading';
 import { connect } from 'react-redux';
 
 class TrackList extends Component {
-    state = {loading: false};
+    state = { loading: true };
 
-    async componentDidMount() {
-        // let { data } = await callApi('playlist/789794642', 'GET', null);
-        // // this.props.fetAllTracks(data.tracks)
-        // this.setState({
-        //     tracks: data.tracks
-        // })
-        // let { data } = await axios({
-        //     method: 'GET',
-        //     url: 'https://api.doraneko.tk/playlist/789794642',
-        //     data: null
-        // });
-
-        // this.setState({
-        //     tracks: data.tracks
-        // })
-        // console.log(this.state.tracks);
+    UNSAFE_componentWillReceiveProps(newProps) {
+        const { tracks } = newProps;
+        this.unLoading(tracks);
     }
+
+    unLoading = (tracks) => {
+        if (this.state.loading && tracks[0].id) {
+            this.setState({
+                loading: false
+            })
+        }
+    }
+
+    componentDidMount() {
+        this.unLoading(this.props.tracks);
+    }
+
     render() {
         const { loading } = this.state;
+        
         if (loading) return <Loading />;
         else {
             return (
                 // Track
                 <>
                     <span className="track-txt">Popular songs</span>
-                    {/* {
-                        tracks.data.map((track) => (
-                            <CardTrack key={track.id} track={track} />
-                        ))} */}
                     {this.showTracks()}
                 </>
             );
@@ -45,7 +42,7 @@ class TrackList extends Component {
         let result = null;
         if (tracks.length > 0) {
             result = tracks.map(track => {
-                return <CardTrack key={track.id} player={player} track={track}/>
+                return <CardTrack key={track.id} player={player} track={track} />
             })
         }
         return result;
@@ -53,17 +50,10 @@ class TrackList extends Component {
 
 }
 const mapStateToProps = state => {
-    return{
-        tracks : state.tracksReducer,
+    return {
+        tracks: state.tracksReducer,
         player: state.playerReducer
     }
 }
-// const mapDispatchToProps = (dispatch, props) => {
-//     return{
-//         fetAllTracks: () =>{
-//             dispatch(actFetchTracksRequest())
-//         }
-//     }
-// }
 
 export default connect(mapStateToProps)(TrackList);

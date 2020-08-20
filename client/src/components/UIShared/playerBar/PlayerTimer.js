@@ -1,68 +1,33 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+import { faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons'
 import ReactPlayer from 'react-player'
 import Slider from 'rc-slider'
 import { connect } from "react-redux";
-import {nextTrack} from '../../../store/actions/PlayerAction';
+import { nextTrack } from '../../../store/actions/PlayerAction';
 
 class PlayerTimer extends Component {
     constructor(props) {
         super(props);
         this.state = {
             value: 0,
-            duration: 0
+            duration: 0,
+            volume: 0.5
         }
-    }
-
-    renderProgressBar = () => {
-
+        this.adjustVolume = this.adjustVolume.bind(this)
     }
 
     formatTime = (timeTemp) => {
-        const m = Math.floor(timeTemp / 60);
-        const s = Math.floor(timeTemp % 60);
-
-        return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-    }
-
-    normalize = (str) => {
-        return str.normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/đ/g, 'd').replace(/Đ/g, 'D')
-            .replace(/\s/g, '')
+        const minutes = Math.floor(timeTemp / 60);
+        const seconds = Math.floor(timeTemp % 60);
+        return (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
     }
 
     onProgress = (state) => {
         const { playedSeconds } = state;
-        const { duration } = this.state;
-        const { current } = this.props.player;
-        const { titleShort, artist } = current;
-        const trackHashName = current ? this.normalize(`\@${artist.name}\~${titleShort}`) : '';
-        const e = ['🌑', '🌘', '🌗', '🌖', '🌕'];
         this.setState({
             value: Math.floor(playedSeconds)
         });
-
-        let s = '',
-            c = 0,
-            l = 10,
-            p = Math.floor(playedSeconds / duration * ((l * 5) - 1));
-
-        while (p >= 5) {
-            s += e[4];
-            c++;
-            p -= 5;
-        }
-        s += e[p];
-        c++;
-
-        while (c < l) {
-            s += e[0];
-            c++;
-        }
-
-        window.location.hash = s + this.formatTime(playedSeconds) + '╱' + this.formatTime(duration) + trackHashName;
     }
 
     onDuration = (state) => {
@@ -83,8 +48,14 @@ class PlayerTimer extends Component {
         this.reactPlayer.seekTo(value);
     };
 
+    adjustVolume = (volume) => {
+        this.setState({
+            volume: volume
+        })
+    }
     render() {
-        const { duration, value } = this.state;
+        const { duration, value, volume } = this.state;
+        console.log("AAA", volume);
         const { isPlaying, current, loop } = this.props.player;
         const url = current.preview || null;
         return (
@@ -99,9 +70,10 @@ class PlayerTimer extends Component {
                     onProgress={this.onProgress}
                     onDuration={this.onDuration}
                     onEnded={this.onEnded}
+                    volume={volume}
                     hidden />
                 <div id="player_timer">
-                <p className="player_timer_text">{this.formatTime(value)}</p>
+                    <p className="player_timer_text">{this.formatTime(value)}</p>
                     <div className="player_slider">
                         <Slider
                             min={0}
@@ -125,7 +97,15 @@ class PlayerTimer extends Component {
                         />
                     </div>
                     <p className="player_timer_text">{this.formatTime(duration)}</p>
-                    <FontAwesomeIcon className="player_btn volume_btn" icon={faVolumeUp} />
+                    <FontAwesomeIcon className="player_btn volume_btn" icon={volume !==0 ? faVolumeUp  : faVolumeMute} />
+                    <Slider
+                        style={{ display: 'inline-block', width: 50, marginLeft: 5 }}
+                        defaultValue={volume}
+                        axis="y"
+                        min={0} max={1}
+                        name="volume"
+                        step={0.01}
+                        onChange={this.adjustVolume} />
                 </div>
             </>
         );

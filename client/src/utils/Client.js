@@ -1,8 +1,3 @@
-/*
- * Created by @tranphuquy19 on 14/08/2020
- * @author: tranphuquy19@gmail.com
- */
-
 import axios from "axios";
 import config from "./Config";
 import headerHelper from "./HeaderHelper";

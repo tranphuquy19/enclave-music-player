@@ -19,14 +19,14 @@
     align-items: center;
     justify-content: center;
     grid-area: playerCtrlBtns;
-    margin-left: 6rem;
+    margin-left: 1rem;
 }
 #player_timer{
     display: flex;
     align-items: center;
     justify-content: space-between;
     grid-area: playerTimer;
-    margin: 0 8rem;
+    margin: 0 3rem;
     
 }
 .player_ctr_btns {
@@ -74,7 +74,7 @@
     grid-template-areas: "playerTrackImage playerTrackText playerTrackText playerTrackText playerTrackBtn";
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: 1fr;
-    margin-right: 4rem;
+    margin: 0px -2.7rem;
 }
 .player_track_image {
     display: flex;

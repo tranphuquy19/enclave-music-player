@@ -1,8 +1,3 @@
-/*
- * Created by @tranphuquy19 on 14/08/2020
- * @author: tranphuquy19@gmail.com
- */
-
 import {combineReducers} from "redux";
 import {
     albumsReducer,
@@ -10,7 +5,9 @@ import {
     playerReducer,
     tracksReducer,
     userReducer,
-    playlistsReducer
+    playlistsReducer, 
+    favoritesReducer,
+    findTracksReducer
 } from './_index';
 
 const masterReducer = combineReducers({
@@ -19,7 +16,9 @@ const masterReducer = combineReducers({
     tracksReducer,
     albumsReducer,
     playerReducer,
-    playlistsReducer
+    playlistsReducer,
+    favoritesReducer,
+    findTracksReducer
 });
 
 export default masterReducer;

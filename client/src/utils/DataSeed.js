@@ -1,8 +1,3 @@
-/*
- * Created by @tranphuquy19 on 14/08/2020
- * @author: tranphuquy19@gmail.com
- */
-
 const dataSeeds = {
     albums:  [{id: 108447472}, {id:42710961}, {id: 11794498}, {id: 13833514}, {id:62869222}],
     artists: [

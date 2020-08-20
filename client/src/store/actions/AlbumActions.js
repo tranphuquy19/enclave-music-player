@@ -1,8 +1,3 @@
-/*
- * Created by @tranphuquy19 on 15/08/2020
- * @author: tranphuquy19@gmail.com
- */
-
 import DataSeed from '../../utils/DataSeed';
 import {FETCH_ALBUMS, LOAD_ALBUMS} from '../../utils/Types';
 import {fetchAlbumsByIds} from '../../queries/AlbumQueries';

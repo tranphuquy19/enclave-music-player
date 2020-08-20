@@ -1,7 +1,3 @@
-/*
- * Created by @tranphuquy19 on 15/08/2020
- * @author: tranphuquy19@gmail.com
- */
 
 import Client from "../utils/Client";
 
@@ -13,5 +9,14 @@ const fetchArtistById = async (id) => {
         console.log(e)
     }
 }
+const fetchArtistByIds = async (ids) => {
+    try {
+        const resPromises = ids.map(id => fetchArtistById(id));
+        let albums = await Promise.all(resPromises);
+        return albums;
+    } catch (e) {
+        console.log(e);
+    }
+}
 
-export {fetchArtistById}
+export {fetchArtistById, fetchArtistByIds}

@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './header.css'
 import ToggleDark from '../../../containers/ToggleDark';
+import { connect } from 'react-redux';
+import {logout} from '../../../store/actions/UserActions';
+import {findTracksAction} from '../../../store/actions/FindTrackActions'
 
 
 class Header extends Component {
-    logOut(event) {
-        event.preventDefault()
-        localStorage.removeItem('usertoken')
-        this.props.history.push('/')
+    // logOut(event) {
+    //     event.preventDefault()
+    //     localStorage.removeItem('usertoken')
+    //     this.props.history.push('/')
+    // }
+    handleChange = (e) => {
+        this.props.findTracksAction(e.target.value)
     }
     render() {
+        const {user} = this.props;
         const loginRegLink = (
             <div className="nav-menu">
                 <ul className="nav-content">
@@ -24,8 +31,8 @@ class Header extends Component {
         const userLink = (
             <div className="nav-menu">
                 <ul className="nav-content">
-                    <NavLink exact to="/songs" className="nav-item">Hi!</NavLink>
-                    <NavLink exact to="/" className="nav-item" onClick={this.logOut.bind(this)}>Log out</NavLink>
+                    <NavLink exact to="/songs" className="nav-item">Hi, {user.username}!</NavLink>
+                    <NavLink exact to="/" className="nav-item" onClick={this.props._logout}>Log out</NavLink>
                 </ul>
             </div>
         )
@@ -43,15 +50,29 @@ class Header extends Component {
                     <span className="navbar-toggle-icon"></span>
                 </button>
                     <div className="search-box">
-                        <input className="search-txt" type="text" placeholder='Search for artists, songs & album' />
-                        <FontAwesomeIcon className="search-btn" icon={faSearch} />
+                        <input className="search-txt" type="text" placeholder='Search for artists, songs & album' onChange={this.handleChange} />
+                        <FontAwesomeIcon type="submit" className="search-btn" icon={faSearch} />
                     </div>
                     <ToggleDark />
-                    {localStorage.usertoken ? userLink : loginRegLink}
+                    {user.token ? userLink : loginRegLink}
                 </nav>
         );
     }
 
 }
 
-export default withRouter(Header);
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        _logout: () => {
+            dispatch(logout())
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

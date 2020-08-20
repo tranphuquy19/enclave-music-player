@@ -1,6 +1,18 @@
 import DataSeed from '../../utils/DataSeed';
-import {FETCH_TRACKS} from '../../utils/Types';
-import {fetchTracksByIds} from '../../queries/TrackQueries';
+import {FETCH_TRACKS, GET_TRACK, VOTE_TRACK} from '../../utils/Types';
+import {fetchTracksByIds, voteTrackById} from '../../queries/TrackQueries';
+
+const loadTracksSeed = () => {
+    const {tracks, nbMaxTracks} = DataSeed;
+    const _tracks = tracks.slice(0, nbMaxTracks);
+
+    return dispatch => {
+        dispatch({
+            type: GET_TRACK,
+            payload: _tracks
+        });
+    }
+}
 
 const fetchTracks = () => {
     return async dispatch => {
@@ -15,4 +27,13 @@ const fetchTracks = () => {
     }
 }
 
-export {fetchTracks};
+const voteTrack = (id, isUp) => {
+    return async dispatch => {
+        const resTrack = await voteTrackById(id, isUp);
+        dispatch({
+            type: VOTE_TRACK,
+            payload: resTrack
+        })
+    }
+}
+export {loadTracksSeed, fetchTracks, voteTrack};

@@ -5,7 +5,8 @@ export const lightTheme = {
   toggleBorder: "#FFF",
   track_list: "#EBEBEB",
   gradient: "linear-gradient(#39598A, #79D7ED)",
-  URL: ('assets/img/cover-light.jpeg')
+  URL: ('assets/img/cover-light.jpeg'),
+  list_album: "#4267B2"
 
 };
 export const darkTheme = {
@@ -15,5 +16,6 @@ export const darkTheme = {
   toggleBorder: "#6B8096",
   track_list: "#3C3E4D",
   gradient: "linear-gradient(#091236, #1E215D)",
-  URL: "assets/img/background-dark.jpg"
+  URL: "assets/img/background-dark.jpg",
+  list_album: "#FCFCFC"
 };

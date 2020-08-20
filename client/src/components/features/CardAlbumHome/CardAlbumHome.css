@@ -44,6 +44,11 @@
     font-size: 16px;
     color: #888;
 }
+.hover-album:hover {
+    text-decoration: none;
+    padding: 10px;
+    color: #ff933b;
+}
 .album-list-content span {
     font-size: 14px;
     color: #3eb4bf;

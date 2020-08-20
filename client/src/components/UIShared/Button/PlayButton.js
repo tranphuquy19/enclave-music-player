@@ -23,7 +23,6 @@ class PlayButton extends Component {
     }
 
     render() {
-        const {isPlaying} = this.props.player
         return (
             <>
                 {/* <audio ref={(input) => { this.audioRef = input }} src={this.state.url} style={{ display: 'none' }} /> */}

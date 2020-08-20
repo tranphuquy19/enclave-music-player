@@ -1,7 +1,3 @@
-/*
- * Created by @tranphuquy19 on 14/08/2020
- * @author: tranphuquy19@gmail.com
- */
 
 // types defined on API
 const ALBUM_TYPE = 'album';
@@ -16,11 +12,13 @@ const USER_REGISTER = 'USER_REGISTER';
 const FIND_TRACKS = 'FIND_TRACKS';
 const GET_TRACK = 'GET_TRACK';
 const FETCH_TRACKS = 'FETCH_TRACKS';
+const VOTE_TRACK = 'VOTE_TRACK';
 
 const LOAD_ALBUMS = 'LOAD_ALBUMS';
 const FETCH_ALBUMS = 'FETCH_ALBUMS';
 
 const LOAD_ARTISTS = 'LOAD_ARTISTS';
+const FETCH_ARTISTS = 'FETCH_ARTISTS';
 
 const LOAD_PLAYLISTS = 'LOAD_PLAYLISTS';
 
@@ -32,6 +30,9 @@ const REMOVE_TRACK = 'REMOVE_TRACK';
 const SET_TRACKS = 'SET_TRACKS';
 const SHUFFLE_TRACKS = 'SHUFFLE_TRACKS';
 const TOGGLE_PLAYING = 'TOGGLE_PLAYING';
+
+const ADD_FAVORITE_SONG = "ADD_FAVORITE_SONG";
+const REMOVE_FAVORITE_SONG = "REMOVE_FAVORITE_SONG";
 
 export {
     ALBUM_TYPE,
@@ -46,11 +47,13 @@ export {
     GET_TRACK,
     FIND_TRACKS,
     FETCH_TRACKS,
+    VOTE_TRACK,
 
     LOAD_ALBUMS,
     FETCH_ALBUMS,
 
     LOAD_ARTISTS,
+    FETCH_ARTISTS,
 
     LOAD_PLAYLISTS,
 
@@ -62,4 +65,7 @@ export {
     SET_TRACKS,
     SHUFFLE_TRACKS,
     TOGGLE_PLAYING,
+
+    ADD_FAVORITE_SONG,
+    REMOVE_FAVORITE_SONG
 }

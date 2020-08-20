@@ -19,7 +19,10 @@ export const GlobalStyles = createGlobalStyle`
 .track-list ul, .album-list-content ul{
     background-color: ${({ theme }) => theme.track_list}
   }
-.track-author h4, .duration, .track-icon, .sidebar_libra h4, .sidebar_item, .album-list-content h4 {
+.track-author h4, .duration, .track-icon, .sidebar_libra h4, .sidebar_item, .album-list-content h4, .sidebar_des, .container-right-album {
     color: ${({ theme }) => theme.text}
   }
+.hover-album{
+  color: ${({ theme }) => theme.list_album}
+}
 `;

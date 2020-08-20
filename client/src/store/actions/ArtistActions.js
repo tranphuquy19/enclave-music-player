@@ -1,10 +1,6 @@
-/*
- * Created by @tranphuquy19 on 15/08/2020
- * @author: tranphuquy19@gmail.com
- */
-
-import DataSeed from "../../shared/DataSeed";
-import {LOAD_ARTISTS} from "../../shared/Types";
+import DataSeed from "../../utils/DataSeed";
+import {LOAD_ARTISTS, FETCH_ARTIST} from "../../utils/Types";
+import { fetchArtistByIds } from "../../queries/_index";
 
 const loadArtistsSeed = () => {
     const {artists, nbMaxArtists} = DataSeed;
@@ -17,5 +13,17 @@ const loadArtistsSeed = () => {
         });
     }
 }
+const fetchArtists = () => {
+    return async dispatch => {
+        const { artists, nbMaxArtists } = DataSeed;
+        const ids = artists.slice(0, nbMaxArtists).map(artist => artist.id);
 
-export {loadArtistsSeed};
+        const resArtists = await fetchArtistByIds(ids);
+        dispatch({
+            type: FETCH_ARTIST,
+            payload: resArtists
+        })
+    }
+}
+
+export {loadArtistsSeed, fetchArtists};

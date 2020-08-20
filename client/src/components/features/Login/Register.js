@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Login.css'
-import { NavLink } from 'react-router-dom';
-import { register } from './UserFunctions';
+import { NavLink, Redirect } from 'react-router-dom';
+import { register } from '../../../store/actions/UserActions';
+import { connect } from 'react-redux';
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -27,40 +28,14 @@ class Register extends Component {
             password: this.state.password,
             password_confirm: this.password_confirm
         }
-        register(newUser).then(res => {
-            if (res) {
-                this.props.history.push('/signin')
-            }
-        })
+        this.props._registerUser(newUser)
     }
-    // handleSubmit(event) {
-    //     const { username, password, password_confirm } = this.state;
-    //     axios
-    //         .post(
-    //             "https://api.doraneko.tk/register",
-    //             {
-    //                     username: username,
-    //                     password: password,
-    //                     password_confirm: password_confirm
-    //             },
-
-    //             // { withCredentials: true }
-    //         )
-
-    //         .then(response => {
-    //             console.log(response)
-    //             if (response.data.status === "created") {
-    //                 this.props.handleSuccessfulAuth(response.data);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.log("registration error", error);
-    //         });
-    //     event.preventDefault();
-    // }
 
     render() {
+        const { token } = this.props.newUser;
         return (
+            <>
+            {token ? <Redirect to="/signin" /> : <></>}
             <div className="container" id="container">
                 <div className="form-container sign-up-container" >
                     {/* Sign Up form code goes here  */}
@@ -104,8 +79,21 @@ class Register extends Component {
                     </div>
                 </div>
             </div>
+            </>
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        newUser: state.userReducer
+    }
+}
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        _registerUser: (newUser) => {
+            dispatch(register(newUser));
+        }
+    }
+};
 
-export default Register;
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

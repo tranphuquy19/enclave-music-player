@@ -25,7 +25,7 @@
 }
 
 .custom_sidebar span{
-    margin-left: 60px;
+    margin-left: 30px;
 }
 
 .sidebar_menu {
@@ -37,6 +37,7 @@
     text-decoration: none;
     margin: 20px 0;
     padding: 10px;
+    margin-left: 20px;
 }
 .sidebar_item:hover{
     background: #F6A286;
@@ -50,6 +51,12 @@
 
 .sidebar_libra{
     margin-top: 100px;
+}
+
+.sidebar_des{
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
 }
 
 

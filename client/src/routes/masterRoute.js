@@ -7,6 +7,7 @@ import LoginPages from '../pages/LoginPages'
 import PageNotFound from '../components/PageNotFound/PageNotFound'
 import RegisterPages from '../pages/RegisterPages'
 import FavoriteSongs from '../pages/FavoriteSongs'
+import ArtistPages from '../pages/ArtistPages'
 
 export const masterRoutes = [
     {
@@ -39,6 +40,11 @@ export const masterRoutes = [
         path: '/album/:id',
         exact: true,
         main: () => <SingleAlbumPage />
+    },
+    {
+        path: '/artist',
+        exact: true,
+        main: () => <ArtistPages />
     },
     {
         path: '/songs',

@@ -1,19 +1,17 @@
-/*
- * Created by @tranphuquy19 on 14/08/2020
- * @author: tranphuquy19@gmail.com
- */
 
 import User from "../models/User";
 import {USER_LOGIN, USER_LOGOUT, USER_REGISTER} from "../../utils/Types";
 
-const userInitState = User;
+let userLogged = JSON.parse(localStorage.getItem('user'));
+
+const userInitState = userLogged || User;
 
 export const userReducer = (state = userInitState, {type, payload}) => {
     switch (type) {
         case USER_LOGIN:
-            return {...payload.data};
+            return {...payload};
         case USER_REGISTER:
-            return {...payload.data};
+            return {...payload};
         case USER_LOGOUT:
             return User;
         default:

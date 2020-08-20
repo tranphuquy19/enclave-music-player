@@ -1,8 +1,3 @@
-/*
- * Created by @tranphuquy19 on 15/08/2020
- * @author: tranphuquy19@gmail.com
- */
-
 import {
     ALBUM_TYPE,
     ARTIST_TYPE,
@@ -12,29 +7,32 @@ import {
     SET_TRACKS, TOGGLE_PLAYING,
     TRACK_TYPE
 } from "../../utils/Types";
-import {store} from "../index";
-import {fetchArtistById, fetchAlbumById} from '../../queries/_index'
-import {fetchPlaylistById} from "../../queries/PlaylistQueries";
-import {fetchTrackById} from "../../queries/TrackQueries";
+import { store } from "../index";
+import { fetchArtistById, fetchAlbumById } from '../../queries/_index'
+import { fetchPlaylistById } from "../../queries/PlaylistQueries";
+import { fetchTrackById } from "../../queries/TrackQueries";
+import Album from "../models/Album";
+import Playlist from "../models/Playlist";
 
 const setTracks = (data) => {
     return async dispatch => {
         const obj = findLocal(data);
-        const {id, tracks, type} = obj;
-    
+        console.log('obj', obj);
+        const { id, tracks, type } = obj;
+
         let belongTo;
         let _tracks = [];
 
         if (tracks.length === 0) {
-            const {id, tracks, type} = await searchOnServer(data);
+            const { id, tracks, type } = await searchOnServer(data);
             _tracks = tracks;
-            belongTo = {id, type};
+            belongTo = { id, type };
         } else {
             _tracks = tracks;
-            belongTo = {id, type};
+            belongTo = { id, type };
         }
 
-        const {playerReducer} = store.getState();
+        const { playerReducer } = store.getState();
         const playingIndex = 0;
 
         dispatch({
@@ -42,6 +40,7 @@ const setTracks = (data) => {
             payload: {
                 ...playerReducer,
                 isPlaying: true,
+
                 queue: _tracks,
                 playingIndex: 0,
                 previous: _tracks[playingIndex - 1] || {},
@@ -73,21 +72,22 @@ const previousTrack = () => {
 
 const togglePlaying = () => {
     return dispatch => {
-        const {playerReducer} = store.getState();
-        const {isPlaying} = playerReducer;
+        const { playerReducer } = store.getState();
+        let { isPlaying, current } = playerReducer;
+        if (current.id) isPlaying = !isPlaying;
         dispatch({
             type: TOGGLE_PLAYING,
             payload: {
                 ...playerReducer,
-                isPlaying: !isPlaying
+                isPlaying
             }
         })
     }
 }
 
 const jumpToTrack = (step = 1) => {
-    const {playerReducer} = store.getState();
-    const {playingIndex, queue} = playerReducer;
+    const { playerReducer } = store.getState();
+    const { playingIndex, queue } = playerReducer;
     const jumpIndex = playingIndex + step
     const isContinuePlaying = queue[jumpIndex] ? true : false;
     let payload = {};
@@ -110,7 +110,7 @@ const jumpToTrack = (step = 1) => {
     return payload;
 }
 
-const searchOnServer = async ({id, type}) => {
+const searchOnServer = async ({ id, type }) => {
     switch (type) {
         case ALBUM_TYPE:
             return await fetchAlbumById(id);
@@ -120,13 +120,13 @@ const searchOnServer = async ({id, type}) => {
             return await fetchPlaylistById(id);
         case TRACK_TYPE:
             const track = await fetchTrackById(id);
-            return {id: track.id, tracks: [track], type: 'track'};
+            return { id: track.id, tracks: [track], type: 'track' };
         default:
             return [];
     }
 }
 
-const findLocal = ({id, type}) => {
+const findLocal = ({ id, type }) => {
     let items = [];
 
     switch (type) {
@@ -154,12 +154,26 @@ const findLocal = ({id, type}) => {
     if (type === TRACK_TYPE) {
         return {
             ...items[itemIndex],
-            tracks: [items[itemIndex]]}
+            tracks: [items[itemIndex]]
+        }
     } else {
         if (itemIndex !== -1)
             return items[itemIndex]
-        else return {};
+        else {
+            switch(type) {
+                case ALBUM_TYPE:
+                    return Album;
+                // case ARTIST_TYPE:
+                //     items = store.getState().artistsReducer;
+                case PLAYLIST_TYPE:
+                    return Playlist;
+                case TRACK_TYPE:
+                    return {id, type, tracks: []}
+                default:
+                    items = {id, type, tracks: []};
+            }
+        };
     }
 }
 
-export {setTracks, nextTrack, previousTrack, togglePlaying}
+export { setTracks, nextTrack, previousTrack, togglePlaying }

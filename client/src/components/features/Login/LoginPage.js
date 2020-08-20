@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { NavLink } from 'react-router-dom';
-import { login } from './UserFunctions';
+import { login } from '../../../store/actions/UserActions';
+import { Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
 
 class LoginPage extends Component {
     constructor() {
@@ -19,43 +21,20 @@ class LoginPage extends Component {
             [event.target.name]: event.target.value
         });
     }
-    handleSubmit(event){
+    handleSubmit = (event) => {
         event.preventDefault()
         const user = {
             username: this.state.username,
             password: this.state.password
         }
-        login(user).then(res => {
-            if(res){
-                this.props.history.push('/')
-            }
-        })
+        this.props._loginUser(user)
     }
-    // handleSubmit(event) {
-    //     const { username, password } = this.state;
-    //     axios
-    //         .post(
-    //             "https://api.doraneko.tk/login",
-    //             {
-    //                     username: username,
-    //                     password: password,
-    //             },
-    //             // { withCredentials: true }
-    //         )
-    //         .then(response => {
-    //             console.log("res from login", response);
-    //             // if (response.data.status === "created") {
-    //             //     this.props.handleSuccessfulAuth(response.data);
-    //             // }
-    //         })
-    //         .catch(error => {
-    //             console.log("login error", error);
-    //         });
-    //     event.preventDefault();
-    // }
     render() {
+        const { token } = this.props.user;
         return (
+
             <>
+                {token ? <Redirect to="/" /> : <></>}
                 <div className="container" id="container">
                     <div className="form-container sign-in-container">
                         {/* Sign In form code goes here  */}
@@ -94,4 +73,18 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage;
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer
+    }
+};
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        _loginUser: (user) => {
+            dispatch(login(user));
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

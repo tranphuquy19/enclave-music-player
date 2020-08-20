@@ -8,38 +8,12 @@ import PlayerTimer from '../playerBar/PlayerTimer';
 import PlayerTrackInfo from '../playerBar/PlayerTrackInfo';
 import './PlayerBar.css'
 import { connect } from 'react-redux';
-import { fetchArtistById } from '../../../queries/_index';
 
 
 class PlayerComponent extends Component {
-    state = {
-        artistCached: {
-            id: '',
-            pictureSmall: ''
-        }
-    };
-
-    handleTrackChange(artistId) {
-        const {artistCached} = this.state;
-        if (!artistId || artistId === artistCached.id) return;
-        fetchArtistById(artistId).then(result => {
-            const {pictureSmall} = result;
-            this.setState({
-                artistCached: {
-                    id: artistId,
-                    pictureSmall
-                }
-            });
-        })
-    }
 
     render() {
-        const {player} = this.props;
-        const {artistCached} = this.state;
-        const {current} = player;
-        const {titleShort, artist} = current;
-        const {id} = artist;
-        this.handleTrackChange(id);
+        const {player} = this.props
         return (
             <div className="footer">
                 <div id="player">
@@ -51,7 +25,7 @@ class PlayerComponent extends Component {
                         <PlayerBtnLoopTracks /> 
                     </div>
                     <PlayerTimer player={player} />
-                    <PlayerTrackInfo />
+                    <PlayerTrackInfo player={player} />
                 </div>
             </div>
         );

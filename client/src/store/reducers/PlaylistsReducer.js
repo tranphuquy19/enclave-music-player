@@ -1,7 +1,3 @@
-/*
- * Created by @tranphuquy19 on 17/08/2020
- * @author: tranphuquy19@gmail.com
- */
 
 import Playlist from "../models/Playlist";
 import {LOAD_PLAYLISTS} from "../../utils/Types";

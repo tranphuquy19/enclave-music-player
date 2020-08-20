@@ -11,7 +11,7 @@ import { fetchAlbums } from './store/actions/AlbumActions';
 
 class App extends Component {
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const { _fetchTracks, _fetchAlbums } = this.props;
     _fetchTracks();
     _fetchAlbums();
