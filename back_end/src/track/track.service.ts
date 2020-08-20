@@ -109,8 +109,8 @@ export class TrackService {
         const trackRO: any = {
             ...track,
             trackId: undefined,
-            upVoteLink: `${config.apiUrl}/track/${track.trackId}/upvote`,
-            downVoteLink: `${config.apiUrl}/track/${track.trackId}/downvote`
+            upVoteLink: `${config.apiUrl}/track/${track.trackId}/voteup`,
+            downVoteLink: `${config.apiUrl}/track/${track.trackId}/votedown`
         };
 
         if (track.upVotes) {
