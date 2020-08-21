@@ -1,5 +1,5 @@
 import Track from "../models/Track";
-import { FETCH_TRACKS, GET_TRACK, VOTE_TRACK } from "../../utils/Types";
+import { FETCH_TRACKS, GET_TRACK, VOTE_TRACK, FETCH_TRACK } from "../../utils/Types";
 
 const tracksInitState = [Track];
 
@@ -9,9 +9,11 @@ export const tracksReducer = (state = tracksInitState, { type, payload }) => {
             return [...payload];
         case FETCH_TRACKS:
             return [...payload];
+        case FETCH_TRACK:
+            return [...payload, ...state];
         case VOTE_TRACK:
             const newState = state.map(track => {
-                if(track.id === payload.id) return payload;
+                if (track.id === payload.id) return payload;
                 else return track;
             })
             return newState;

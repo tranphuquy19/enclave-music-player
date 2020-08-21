@@ -20,10 +20,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <BrowserRouter>
-        {routerRendering(masterRoutes, true)}
-      </BrowserRouter>
-    </div>
+        <BrowserRouter>
+          {routerRendering(masterRoutes, true)}
+        </BrowserRouter>
+      </div>
     );
   }
 }

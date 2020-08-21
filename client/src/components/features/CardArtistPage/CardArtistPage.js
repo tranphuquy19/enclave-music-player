@@ -4,7 +4,6 @@ import './CardArtistPage.css'
 
 const CardArtistPage = (props) => {
     const { artist } = props;
-    console.log(artist);
     return (
         <div className="artist-card">
             <div className="face face1">

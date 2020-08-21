@@ -11,8 +11,6 @@ class PlayButton extends Component {
         const {id, type} = track;
         const {belongTo} = player;
 
-        // console.log({player, id, type})
-
         _togglePlaying();
         if (belongTo.id !== id) _setTracks({id, type});
     }

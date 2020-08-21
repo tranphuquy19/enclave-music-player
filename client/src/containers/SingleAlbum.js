@@ -8,19 +8,20 @@ import Album from '../store/models/Album';
 import { fetchAlbumById } from '../queries/_index';
 import { togglePlaying, setTracks } from '../store/actions/PlayerAction';
 import { connect } from 'react-redux';
+import Loading from '../components/UIShared/loading/Loading';
 
 class SingleAlbum extends Component {
     state = {
-        album: Album
+        album: Album,
     }
 
     playAll = () => {
-        const {id} = this.props.match.params;
-        const {player, _togglePlaying, _setTracks} = this.props;
-        const {belongTo} = player;
+        const { id } = this.props.match.params;
+        const { player, _togglePlaying, _setTracks } = this.props;
+        const { belongTo } = player;
 
         _togglePlaying();
-        if (belongTo.id !== id) _setTracks({id, type: 'album'});
+        if (belongTo.id !== id) _setTracks({ id, type: 'album' });
     }
 
     componentDidMount() {
@@ -29,8 +30,9 @@ class SingleAlbum extends Component {
     }
 
     render() {
-        const { album } = this.state;
+        const { album} = this.state;
         const { coverMedium, title, tracks } = album;
+
         return (
             <div className="container-right-album">
                 <header>
@@ -42,8 +44,8 @@ class SingleAlbum extends Component {
                             <p>{tracks.length} Songs</p>
                         </div>
                     </section>
-                    <button onClick={this.playAll}>Play All</button>
                 </header>
+                <button className="button-play" onClick={this.playAll}>Play All</button>
                 <table>
                     <thead>
                         <tr>

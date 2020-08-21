@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './header.css'
 import ToggleDark from '../../../containers/ToggleDark';
-import { connect } from 'react-redux';
 import {logout} from '../../../store/actions/UserActions';
-import {findTracksAction} from '../../../store/actions/FindTrackActions'
+
+import SearchBar from '../../../containers/SearchBar';
+import { connect } from 'react-redux';
 
 
 class Header extends Component {
@@ -15,9 +14,6 @@ class Header extends Component {
     //     localStorage.removeItem('usertoken')
     //     this.props.history.push('/')
     // }
-    handleChange = (e) => {
-        this.props.findTracksAction(e.target.value)
-    }
     render() {
         const {user} = this.props;
         const loginRegLink = (
@@ -49,10 +45,7 @@ class Header extends Component {
                     aria-label="Toggle navigation" >
                     <span className="navbar-toggle-icon"></span>
                 </button>
-                    <div className="search-box">
-                        <input className="search-txt" type="text" placeholder='Search for artists, songs & album' onChange={this.handleChange} />
-                        <FontAwesomeIcon type="submit" className="search-btn" icon={faSearch} />
-                    </div>
+                    <SearchBar />
                     <ToggleDark />
                     {user.token ? userLink : loginRegLink}
                 </nav>
@@ -63,7 +56,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.userReducer
+        user: state.userReducer,
     }
 }
 

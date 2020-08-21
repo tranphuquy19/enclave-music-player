@@ -12,7 +12,6 @@ class YourFavoriteSongs extends Component {
   componentDidMount() {
     const { tracks, user } = this.props;
     const _tracks = tracks.filter(track => track.upVotes.some(_user => _user.id === user.id));
-    console.log(_tracks);
     this.setState({
       favoritesSongs: _tracks
     })
@@ -33,7 +32,9 @@ class YourFavoriteSongs extends Component {
             />
           ) : (
               favoritesSongs.map((track) => (
+                <div className="track-list">
                 <CardTrack key={track.id} track={track} player={player} />
+                </div>
               ))
             )}
         </div>

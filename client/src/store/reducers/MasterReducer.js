@@ -7,7 +7,7 @@ import {
     userReducer,
     playlistsReducer, 
     favoritesReducer,
-    findTracksReducer
+    findTracksReducer,
 } from './_index';
 
 const masterReducer = combineReducers({
@@ -18,7 +18,7 @@ const masterReducer = combineReducers({
     playerReducer,
     playlistsReducer,
     favoritesReducer,
-    findTracksReducer
+    tracks: findTracksReducer
 });
 
 export default masterReducer;

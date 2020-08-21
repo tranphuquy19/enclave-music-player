@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons'
+import { faVolumeUp, faVolumeMute } from '@fortawesome/free-solid-svg-icons'
 import ReactPlayer from 'react-player'
 import Slider from 'rc-slider'
 import { connect } from "react-redux";
@@ -55,7 +55,6 @@ class PlayerTimer extends Component {
     }
     render() {
         const { duration, value, volume } = this.state;
-        console.log("AAA", volume);
         const { isPlaying, current, loop } = this.props.player;
         const url = current.preview || null;
         return (

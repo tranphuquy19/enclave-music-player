@@ -7,9 +7,12 @@ import { voteTrack } from "../../../store/actions/TracksActions";
 import { Redirect } from 'react-router-dom';
 
 class HeartButton extends Component {
+  constructor(props){
+    super(props);
+    this.state = {toggle: false}
+  }
 
   state = {
-
     checkRedirect: false
   }
 
@@ -23,6 +26,7 @@ class HeartButton extends Component {
       const isFavorite = this.isFavorite(upVotes, userId);
       isFavorite ? _voteTrack(id, false) : _voteTrack(id, true);
     }
+    this.setState((state) => ({toggle: !state.toggle}));
 
   };
 
