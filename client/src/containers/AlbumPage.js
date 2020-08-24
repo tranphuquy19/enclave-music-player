@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import CardAlbumPage from '../components/features/CardAlbumPage/CardAlbumPage';
+import Loading from '../components/UIShared/loading/Loading';
+import { connect } from 'react-redux';
 
 
 class AlbumPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            albums: []
+    state = {loading: true};
+    UNSAFE_componentWillReceiveProps(newProps) {
+        const { albums } = newProps;
+        this.unLoading(albums);
+    }
+    unLoading = (albums) => {
+        if (this.state.loading && albums[0].id) {
+            this.setState({
+                loading: false
+            })
         }
     }
 
     componentDidMount() {
-        const albumlds = [108447472, 42710961, 11794498, 13833514, 62869222]; //  
-        albumlds.map(async (id) => {
-            let { data } = await axios({
-                method: 'GET',
-                url: `https://api.doraneko.tk/album/${id}`,
-                data: null
-            });
-            let album = [...this.state.albums, data];
-            this.setState({
-                albums: album
-            })
-        })
-
+        this.unLoading(this.props.albums);
     }
+
     render() {
+        const { loading } = this.state;
+        if (loading) return <Loading />;
         return (
             <div className="container-right">
             <div className="album">
@@ -40,7 +38,7 @@ class AlbumPage extends Component {
         );
     }
     showAlbumPages() {
-        let { albums } = this.state;
+        let { albums } = this.props;
         let result = null;
         if (albums.length > 0) {
             result = albums.map(album => {
@@ -50,5 +48,9 @@ class AlbumPage extends Component {
         return result;
     }
 }
-
-export default AlbumPage;
+const mapStateToProps = state => {
+    return {
+        albums: state.albumsReducer
+    }
+}
+export default connect(mapStateToProps, null)(AlbumPage);

@@ -4,6 +4,7 @@
 }
 .home-page{
     width: 85%;
+    min-height: 100vh;
     float: right;
     padding-top: 40px;
 }

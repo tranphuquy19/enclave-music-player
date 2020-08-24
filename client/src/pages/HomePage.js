@@ -4,6 +4,7 @@ import Header from '../components/UIShared/header/header';
 import Sidebar from '../components/UIShared/sidebar/sidebar';
 import AlbumHome from '../containers/AlbumHome';
 import './page.css'
+import PlayerComponent from '../components/UIShared/playerBar/_PlayerComponent';
 
 class HomePage extends Component {
     render() {
@@ -17,6 +18,7 @@ class HomePage extends Component {
                     </div>
                     <AlbumHome />
                 </div>
+                <PlayerComponent />
                 {/* {routerRendering(homeRoutes, false)} */}
             </>
         );

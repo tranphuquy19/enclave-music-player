@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom'
 import './CardAlbumPage.css'
 
 const CardAlbumPage = (props) => {
     const { album } = props;
     const { artist } = album;
-    console.log('L8', artist);
     return (
         <div className="album-card">
             <div className="face face1">

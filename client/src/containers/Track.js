@@ -1,58 +1,59 @@
 import React, { Component } from 'react';
-
-import axios from 'axios';
 import CardTrack from '../components/features/CardTrack/CardTrack';
 import Loading from '../components/UIShared/loading/Loading';
+import { connect } from 'react-redux';
 
 class TrackList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tracks: []
+    state = { loading: true };
+
+    UNSAFE_componentWillReceiveProps(newProps) {
+        const { tracks } = newProps;
+        this.unLoading(tracks);
+    }
+
+    unLoading = (tracks) => {
+        if (this.state.loading && tracks[0].id) {
+            this.setState({
+                loading: false
+            })
         }
-
     }
-    async componentDidMount() {
-        let { data } = await axios({
-            method: 'GET',
-            url: 'https://api.doraneko.tk/playlist/789794642',
-            data: null
-        });
 
-        this.setState({
-            tracks: data.tracks
-        })
-        // console.log(this.state.tracks);
+    componentDidMount() {
+        this.unLoading(this.props.tracks);
     }
+
     render() {
         const { loading } = this.state;
+        
         if (loading) return <Loading />;
         else {
             return (
                 // Track
                 <>
                     <span className="track-txt">Popular songs</span>
-                    {/* {
-                        tracks.data.map((track) => (
-                            <CardTrack key={track.id} track={track} />
-                        ))} */}
                     {this.showTracks()}
                 </>
             );
         }
     }
     showTracks() {
-        let { tracks } = this.state;
+        let { tracks, player } = this.props;
         let result = null;
         if (tracks.length > 0) {
-            result = tracks.slice(0, 10).map(track => {
-                return <CardTrack key={track.id} track={track} />
-                // return <p key={track.id}>123</p>
+            result = tracks.map(track => {
+                return <CardTrack key={track.id} player={player} track={track} />
             })
         }
         return result;
     }
 
 }
+const mapStateToProps = state => {
+    return {
+        tracks: state.tracksReducer,
+        player: state.playerReducer
+    }
+}
 
-export default TrackList;
+export default connect(mapStateToProps)(TrackList);

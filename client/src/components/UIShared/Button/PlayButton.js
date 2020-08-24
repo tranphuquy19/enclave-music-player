@@ -1,62 +1,24 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { Component } from "react";
 import "./PlayButton.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import {setTracks, togglePlaying} from "../../../store/actions/PlayerAction";
+import { connect } from "react-redux";
 
 class PlayButton extends Component {
-    constructor(props) {
-        super(props);
-        let { url } = props;
-        this.playPreview = this.playPreview.bind(this);
-        // this.audioRef = React.createRef();
-        this.state = {
-            url,
-            isPlaying: false
-        }
-    }
-    // const { url } = props;
-    // console.log('L777', url);
-    // const [audio] = useState(new Audio(url));
-    // const [playing, setPlaying] = useState(false);
+    playPreview = () => {
+        const {player, _togglePlaying, _setTracks, track} = this.props;
+        const {id, type} = track;
+        const {belongTo} = player;
 
-    // const toggle = () => setPlaying(!playing);
-
-    playPreview() {
-        console.log(this.state);
-        let audioElement = document.getElementById("my-audio");
-        if (!this.state.isPlaying) {
-            this.setState({ isPlaying: true });
-            // this.audioRef.play();
-
-            audioElement.setAttribute('src', this.state.url);
-            audioElement.load();
-            audioElement.play();
-            audioElement.onended = (event) => {
-                console.log('Video stopped either because 1) it was over, ' +
-                    'or 2) no further data is available.');
-                this.setState({
-                    isPlaying: false
-                })
-            };
-        } else {
-            this.setState({ isPlaying: false });
-            // this.audioRef.pause();
-            // document.getElementById("my-audio").setAttribute('src', '#');
-            audioElement.pause();
-        }
+        _togglePlaying();
+        if (belongTo.id !== id) _setTracks({id, type});
     }
 
-    // useEffect(() => {
-    //     playing ? audio.play() : audio.pause();
-    //     this.playPreview();
-    // }, [audio, playing]);
-
-    // useEffect(() => {
-    //     audio.addEventListener("ended", () => setPlaying(false));
-    //     return () => {
-    //         audio.removeEventListener("ended", () => setPlaying(false));
-    //     };
-    // });
+    checkIsPlaying = () => {
+        const {belongTo, isPlaying, id, type} = {...this.props.player, ...this.props.track};
+        return isPlaying && belongTo.id === id && type === 'track';
+    }
 
     render() {
         return (
@@ -64,7 +26,7 @@ class PlayButton extends Component {
                 {/* <audio ref={(input) => { this.audioRef = input }} src={this.state.url} style={{ display: 'none' }} /> */}
                 <FontAwesomeIcon
                     className="icon-controller"
-                    icon={this.state.isPlaying ? faPause : faPlay}
+                    icon={this.checkIsPlaying() ? faPause : faPlay}
                     onClick={this.playPreview}
                 />
             </>
@@ -73,4 +35,21 @@ class PlayButton extends Component {
     }
 };
 
-export default PlayButton;
+const mapStateToProps = (state) => {
+    return {
+        player: state.playerReducer
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        _setTracks: (data) => {
+            dispatch(setTracks(data));
+        },
+        _togglePlaying: () => {
+            dispatch(togglePlaying());
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayButton);

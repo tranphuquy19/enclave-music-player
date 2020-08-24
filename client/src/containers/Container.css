@@ -1,0 +1,118 @@
+/* Start Header Section Single Album */
+.container-right-album{
+    padding: 10px;
+}
+
+.container-right-album header {
+    display: flex;
+    margin-bottom: 50px;
+    max-height: 180px;
+}
+
+.container-right-album header img {
+    width: 170px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.container-right-album header .info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.container-right-album header .info h1 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.container-right-album header .info .tags-genres {
+    display: flex;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.container-right-album header .info .tags-genres p {
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--text-color);
+    background: var(--background-secondary-color);
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.2s ease-out;
+}
+
+.container-right-album header .info .tags-genres p:hover {
+    transform: translate(3px, -5px);
+}
+
+.container-right-album header .info .details {
+    display: flex;
+}
+
+.container-right-album header .info p {
+    margin: 2px;
+    font-size: 0.9rem;
+}
+
+#dot {
+    margin: auto 8px;
+}
+
+
+/* End Header Section Single Album */
+
+.container-right-album table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container-right-album td {
+    position: relative;
+    height: 40px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container-right-album td p {
+    white-space: nowrap;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container-right-album th {
+    font-size: 1.2rem;
+    background: linear-gradient(to bottom, #fa3b3b, #ff3679, transparent);
+    border: 0;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+/* button-play */
+.button-play {
+    border-radius: 20px;
+    border: 1px solid #ff4b2b;
+    background-color: #ff4b2b;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+.button-play:active {
+    transform: scale(0.9);
+}
+
+.button-play:focus {
+    outline: none;
+}

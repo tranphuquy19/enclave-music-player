@@ -1,0 +1,102 @@
+.footer{
+    position: sticky;
+    background: linear-gradient(-45deg, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    width: 85%;
+    float: right;
+    bottom: 0;
+    padding: 10px 10px;
+}
+#player {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    grid-template-rows: 1fr;
+    grid-template-areas:  "playerCtrlBtns playerTimer playerTrackInfo";
+    grid-area: player;
+}
+#player_ctr_btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: playerCtrlBtns;
+    margin-left: 1rem;
+}
+#player_timer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: playerTimer;
+    margin: 0 3rem;
+    
+}
+.player_ctr_btns {
+    justify-content: center;
+    grid-area: playerCtrlBtns;
+}
+.player_btn {
+    display: block;
+    align-self: normal;
+    width: 1.3rem;
+    height: 1.3rem;
+    padding-top: .2rem;
+    margin: .5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.player_btn:hover{
+    background-color: aliceblue;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.player_timer_text{
+    margin-bottom: 0px;
+}
+#player_timer .player_slider {
+    width: 80%;
+    min-width: 15rem;
+    margin: 0 1rem;
+}
+.rc-slider {
+    position: relative;
+    height: 14px;
+    padding: 5px 0;
+    width: 100%;
+    border-radius: 6px;
+    touch-action: none;
+}
+
+
+#player_track_info {
+    display: grid;
+    grid-template-areas: "playerTrackImage playerTrackText playerTrackText playerTrackText playerTrackBtn";
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: 1fr;
+    margin: 0px -2.7rem;
+}
+.player_track_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: playerTrackImage;
+    margin: 0 1rem;
+}
+.player_track_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: playerTrackText;
+    font-size: .9rem;
+}
+.player_track_name_text {
+    color: #ffffff;
+    margin-bottom: 0px;
+}
+.player_track_artist_name_text {
+    margin-bottom: 0px;
+}
+.player_track_info_btn {
+    grid-area: playerTrackBtn;
+}

@@ -5,14 +5,15 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import "react-tabs/style/react-tabs.css";
 import App from './App';
-
 import * as serviceWorker from './serviceWorker';
+import {Provider} from 'react-redux';
+import { store } from './store/index';
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

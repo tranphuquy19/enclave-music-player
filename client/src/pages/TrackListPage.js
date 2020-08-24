@@ -3,6 +3,7 @@ import Header from '../components/UIShared/header/header';
 import Sidebar from '../components/UIShared/sidebar/sidebar';
 import TrackList from '../containers/Track';
 import './page.css'
+import PlayerComponent from '../components/UIShared/playerBar/_PlayerComponent';
 
 class TrackListPage extends Component {
     render() {
@@ -15,6 +16,7 @@ class TrackListPage extends Component {
                     <TrackList />
                     </div>
                 </div>
+                <PlayerComponent />
             </>
         );
     }
